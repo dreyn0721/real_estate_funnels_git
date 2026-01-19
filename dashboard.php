@@ -32,33 +32,38 @@ if( !logged_in() ){
        <thead>
          <tr>
            <th>Funnel Name</th>
+           <th>Funnel Form Url</th>
            <th>Report Url</th>
          </tr>
        </thead>
 
        <tbody>
          <tr>
-           <td>business_valuation_exit_entry</td>
+           <td>business valuation exit entry</td>
+           <td><a href="<?php echo $base_url;?>/business_valuation_exit.php" target="_blank"><?php echo $base_url;?>/business_valuation_exit.php</a></td>
            <td><a href="<?php echo $base_url;?>/entries_business_valuation_exit.php" class="btn btn-success">Visit</a></td>
          </tr>
 
 
 
          <tr>
-           <td>real_estate_disposition_opportunities</td>
+           <td>real estate disposition opportunities</td>
+           <td><a href="<?php echo $base_url;?>/real_estate_disposition_opportunities.php" target="_blank"><?php echo $base_url;?>/real_estate_disposition_opportunities.php</a></td>
            <td><a href="<?php echo $base_url;?>/entries_real_estate_disposition_opportunities.php" class="btn btn-success">Visit</a></td>
          </tr>
 
 
 
          <tr>
-           <td>commercial_real_estate</td>
+           <td>commercial real estate</td>
+           <td><a href="<?php echo $base_url;?>/commercial_real_estate.php" target="_blank"><?php echo $base_url;?>/commercial_real_estate.php</a></td>
            <td><a href="<?php echo $base_url;?>/entries_commercial_real_estate.php" class="btn btn-success">Visit</a></td>
          </tr>
 
 
          <tr>
-           <td>residentialrealestate</td>
+           <td>residential real estate</td>
+           <td><a href="<?php echo $base_url;?>/contact-us.php" target="_blank"><?php echo $base_url;?>/contact-us.php</a></td>
            <td><a href="<?php echo $base_url;?>/entries_residentialrealestate.php" class="btn btn-success">Visit</a></td>
          </tr>
 

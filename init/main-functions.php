@@ -1,6 +1,6 @@
 <?php
 $author = "Anthony Rivas";
-$base_url = "http://127.0.0.1/funnels/residentialrealestate";
+$base_url = "http://pva.931.mytemp.website";
 
 
 
@@ -183,26 +183,33 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "login" ){
 
       echo $user['id'];
       exit();
+      
     } else {
 
       $errors[] = "Invalid username or password";
 
 
-      //make html error for return
-      $html = "<ul>";
-
-      foreach( $errors as $error ){
-        $html .= "<li>".$error."</li>";
-      }
-
-      $html .= "</ul>";
-
-      echo $html;
-      exit();
-
     }
 
   }
+
+  if( isset( $errors ) && is_array( $errors ) && count( $errors ) > 0 ){
+    //make html error for return
+    $html = "<ul>";
+
+    foreach( $errors as $error ){
+      $html .= "<li>".$error."</li>";
+    }
+
+    $html .= "</ul>";
+
+    echo $html;
+    exit();
+  } else {
+    echo "Something wen't wrong";
+    exit();
+  }
+
 
 }
 
