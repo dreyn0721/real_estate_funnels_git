@@ -1,6 +1,6 @@
 <?php
 $author = "Anthony Rivas";
-$base_url = "http://pva.931.mytemp.website";
+$base_url = "http://127.0.0.1/real_estate_funnels_git";
 
 
 

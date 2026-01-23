@@ -1,7 +1,3 @@
-
-<?php include("init/database.php"); ?>
-<?php include("init/main-functions.php"); ?>
-
 <?php
 // Vars
 $page = "blog";

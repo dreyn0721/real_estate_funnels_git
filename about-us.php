@@ -1,16 +1,12 @@
-
-<?php include("init/database.php"); ?>
-<?php include("init/main-functions.php"); ?>
-
 <?php
 // Vars
 $page = "about-us";
 $pagetitle = "About Us | AR";
 $description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non euismod dolor. Integer sapien ipsum, dapibus eget bibendum sed nullam sodales.";
+
+
+include("template-parts/header.php"); 
 ?>
-
-
-<?php include("template-parts/header.php"); ?>
 
 	<div class="section-container">
 		<div class="section-container-overlay"  style="background-image: url('https://images.squarespace-cdn.com/content/v1/5c7990c7fb1820611961f360/1636287307899-T87A872YE7PUEYP7WJH6/unsplash-image-PhYq704ffdA.jpg');"></div>

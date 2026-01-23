@@ -1,8 +1,3 @@
-
-<!-- primary #002469 -->
-<?php include("init/database.php"); ?>
-<?php include("init/main-functions.php"); ?>
-
 <?php
 // Vars
 $page = "home";
@@ -11,6 +6,8 @@ $description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibu
 
 
 
+include("template-parts/header-admin.php");
+
 
 if( !logged_in() ){
   header("Location: admin.php");
@@ -18,9 +15,6 @@ if( !logged_in() ){
 
 
 ?>
-
-
-<?php include("template-parts/header-admin.php"); ?>
 
     
    <div class="container mt-5">

@@ -1,16 +1,15 @@
-
-<?php include("init/database.php"); ?>
-<?php include("init/main-functions.php"); ?>
-
 <?php
 // Vars
 $page = "sell-side-advisory";
 $pagetitle = "Sell Side Advisory | AR";
 $description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non euismod dolor. Integer sapien ipsum, dapibus eget bibendum sed nullam sodales.";
+
+
+
+include("template-parts/header.php");
 ?>
 
 
-<?php include("template-parts/header.php"); ?>
 
 	<div class="section-container">
 		<div class="section-container-overlay"  style="background-image: url('https://images.squarespace-cdn.com/content/v1/5c7990c7fb1820611961f360/1747368684092-46TI3O28OGFJTUZ5PKRG/unsplash-image-mD8_A77YN2Q.jpg');"></div>

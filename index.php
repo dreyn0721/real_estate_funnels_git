@@ -1,7 +1,3 @@
-<!-- primary #002469 -->
-<?php include("init/database.php"); ?>
-<?php include("init/main-functions.php"); ?>
-
 <?php
 // Vars
 $page = "home";
@@ -11,10 +7,9 @@ $description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibu
 
 
 
+include("template-parts/header.php");
 ?>
 
-
-<?php include("template-parts/header.php"); ?>
 
 	<div class="section-container">
 		<div class="section-container-overlay"  style="background-image: url('https://images.squarespace-cdn.com/content/v1/5c7990c7fb1820611961f360/1747416149279-10QBM9IH3TPLQNZT28XO/unsplash-image-FrR0nSrJyyw.jpg');"></div>

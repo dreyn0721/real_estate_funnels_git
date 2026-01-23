@@ -1,3 +1,5 @@
+<?php include("init/database.php"); ?>
+<?php include("init/main-functions.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>

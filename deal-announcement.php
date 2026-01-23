@@ -1,16 +1,12 @@
-
-<?php include("init/database.php"); ?>
-<?php include("init/main-functions.php"); ?>
-
 <?php
 // Vars
 $page = "deal-announcement";
 $pagetitle = "Deal Announcement | AR";
 $description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non euismod dolor. Integer sapien ipsum, dapibus eget bibendum sed nullam sodales.";
-?>
 
 
-<?php include("template-parts/header.php"); ?>
+
+include("template-parts/header.php"); ?>
 
 	<div class="section-container">
 		<div class="section-container-overlay"  style="background-image: url('https://images.squarespace-cdn.com/content/v1/5c7990c7fb1820611961f360/1747371021245-O80XP8JVHMPQOPXPXN2T/unsplash-image-eALgIl0Cm-A.jpg');"></div>

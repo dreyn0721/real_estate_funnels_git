@@ -1,14 +1,12 @@
-
-<!-- primary #002469 -->
-<?php include("init/database.php"); ?>
-<?php include("init/main-functions.php"); ?>
-
 <?php
 // Vars
 $page = "home";
 $pagetitle = "FREE Ultimate Homebuyer’s Guide | AR";
 $description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non euismod dolor. Integer sapien ipsum, dapibus eget bibendum sed nullam sodales.";
 
+
+
+include("template-parts/header-admin.php");
 
 
 
@@ -19,8 +17,6 @@ if( !logged_in() ){
 
 ?>
 
-
-<?php include("template-parts/header-admin.php"); ?>
 
     
    <div class="container mt-5">
