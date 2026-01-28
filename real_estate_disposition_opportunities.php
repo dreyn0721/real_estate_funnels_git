@@ -115,6 +115,7 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "entry" ){
         lastname,
         phone,
         email,
+
         datetimeinserted,
         businessowner,
         investor,
@@ -128,6 +129,7 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "entry" ){
         '$lastname', 
         '$phone', 
         '$email', 
+        
         '$current_time',
         '$businessowner',
         '$investor',

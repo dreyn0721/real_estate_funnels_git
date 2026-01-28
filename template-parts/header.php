@@ -26,8 +26,8 @@
 </head>
 <body>
 
-	<header class="container">
-		<nav class="main-nav-container navbar navbar-expand-lg ">
+	<header class="container-fluid bg-white">
+		<nav class="main-nav-container container navbar navbar-expand-lg  ">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">
 					<img src="assets/img/logoipsum-410.png">
@@ -64,6 +64,18 @@
 							<a class="nav-link" href="<?=$base_url;?>/blog.php">Blog</a>
 						</li>
 
+
+						<?php if( logged_in() ): ?>
+							<li class="nav-item"><a class="nav-link" href="<?php echo $base_url; ?>/logout.php">Logout</a></li>
+						<?php else: ?>
+							<li class="nav-item">
+								<a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#authModal">
+									Login
+								</a>
+							</li>
+						<?php endif; ?>
+						
+
 						<li class="nav-item ">
 							<div class="btn-container">
 								<a class="theme-btn" href="<?=$base_url;?>/contact-us.php">Contact</a>
@@ -75,5 +87,6 @@
 			</div>
 		</nav>
 	</header>
+	<?php include("template-parts/auth-modal.php"); ?>
 
 	<main class="main-content">
