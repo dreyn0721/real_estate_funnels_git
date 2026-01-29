@@ -29,7 +29,7 @@
 	<header class="container-fluid bg-white">
 		<nav class="main-nav-container container navbar navbar-expand-lg  ">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="<?php echo $base_url; ?>">
 					<img src="assets/img/logoipsum-410.png">
 				</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,10 +38,8 @@
 
 				<div class="collapse navbar-collapse main-nav-menu " id="navbarNavDropdown">
 					<ul class="navbar-nav">
-						<li class="nav-item <?php echo ($page == "home")? 'active':''; ?>">
-							<a class="nav-link " aria-current="page" href="<?=$base_url;?>">Home</a>
-						</li>
-						<li class="nav-item dropdown <?php echo ($page == "about-us" | $page == "deal-announcement")? 'active':''; ?>">
+
+						<li class="nav-item dropdown ">
 							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							About
 							</a>
@@ -50,17 +48,51 @@
 								<li><a class="dropdown-item <?php echo ($page == "deal-announcement")? 'active':''; ?>" href="<?=$base_url;?>/deal-announcement.php">Deal Announcement</a></li>
 							</ul>
 						</li>
-						<li class="nav-item dropdown <?php echo ($page == "sell-side-advisory" | $page == "buy-side-advisory" | $page == "capital-raising")? 'active':''; ?>">
-							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Service
+						<li class="nav-item dropdown mega-dropdown">
+						  	<a class="nav-link dropdown-toggle"
+							   href="#"
+							   id="servicesMenu"
+							   role="button"
+							   data-bs-toggle="dropdown"
+							   aria-expanded="false">
+							  Services
 							</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item <?php echo ($page == "sell-side-advisory")? 'active':''; ?>" href="<?=$base_url;?>/sell-side-advisory.php">Sell Side Advisory</a></li>
-								<li><a class="dropdown-item <?php echo ($page == "buy-side-advisory")? 'active':''; ?>" href="<?=$base_url;?>/buy-side-advisory.php">Buy Side Advisory</a></li>
-								<li><a class="dropdown-item <?php echo ($page == "capital-raising")? 'active':''; ?>" href="<?=$base_url;?>/capital-raising.php">Capital Raising</a></li>
-							</ul>
+
+						  <div class="dropdown-menu mega-menu" aria-labelledby="servicesMenu">
+						    <div class="row">
+
+						      <!-- Residential -->
+						      <div class="col-md-4">
+						        <h6 class="mega-title">Residential</h6>
+						        <a class="dropdown-item" href="#">Selling</a>
+						        <a class="dropdown-item" href="#">Buying</a>
+						        <a class="dropdown-item" href="#">Rental</a>
+						        <a class="dropdown-item" href="#">Property Management</a>
+						      </div>
+
+						      <!-- Commercial -->
+						      <div class="col-md-4">
+						        <h6 class="mega-title">Commercial</h6>
+						        <a class="dropdown-item" href="#">Selling</a>
+						        <a class="dropdown-item" href="#">Buying</a>
+						        <a class="dropdown-item" href="#">Lease</a>
+						        <a class="dropdown-item" href="#">Property Management</a>
+						      </div>
+
+						      <!-- Business -->
+						      <div class="col-md-4">
+						        <h6 class="mega-title">Business</h6>
+						        <a class="dropdown-item" href="#">Exit Planning</a>
+						        <a class="dropdown-item" href="#">Valuation</a>
+						        <a class="dropdown-item" href="#">Ready to Exit</a>
+						      </div>
+
+						    </div>
+						  </div>
 						</li>
-						<li class="nav-item <?php echo ($page == "blog")? 'active':''; ?>">
+
+
+						<li class="nav-item">
 							<a class="nav-link" href="<?=$base_url;?>/blog.php">Blog</a>
 						</li>
 

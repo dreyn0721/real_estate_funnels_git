@@ -512,11 +512,13 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "entry" ){
         message,
 
 
-        datetimeinserted,
         businessvaluation,
         selling,
         buying,
-        other
+        other,
+        posted_by_id,
+
+        datetimeinserted
       ) 
       VALUES 
       (
@@ -526,13 +528,13 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "entry" ){
         '$email', 
         '$message', 
 
-
-
-        '$current_time',
         '$businessvaluation',
         '$selling',
         '$buying',
-        '$other'
+        '$other',
+        '$user_id',
+
+        '$current_time'
       ) 
       ");
 

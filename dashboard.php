@@ -44,14 +44,6 @@ if( !logged_in( "admin" ) ){
 
 
          <tr>
-           <td>real estate disposition opportunities</td>
-           <td><a href="<?php echo $base_url;?>/real_estate_disposition_opportunities.php" target="_blank"><?php echo $base_url;?>/real_estate_disposition_opportunities.php</a></td>
-           <td><a href="<?php echo $base_url;?>/entries_real_estate_disposition_opportunities.php" class="btn btn-success">Visit</a></td>
-         </tr>
-
-
-
-         <tr>
            <td>commercial real estate</td>
            <td><a href="<?php echo $base_url;?>/commercial_real_estate.php" target="_blank"><?php echo $base_url;?>/commercial_real_estate.php</a></td>
            <td><a href="<?php echo $base_url;?>/entries_commercial_real_estate.php" class="btn btn-success">Visit</a></td>

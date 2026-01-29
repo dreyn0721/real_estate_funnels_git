@@ -12,7 +12,7 @@ include("template-parts/header.php");
 
 
 	<div class="section-container">
-		<div class="section-container-overlay"  style="background-image: url('https://images.squarespace-cdn.com/content/v1/5c7990c7fb1820611961f360/1747416149279-10QBM9IH3TPLQNZT28XO/unsplash-image-FrR0nSrJyyw.jpg');"></div>
+		<div class="section-container-overlay"  style="background-image: url('<?=$base_url;?>/assets/img/9cf88d35-d88e-4798-b62e-58bced9ae766.jpg');"></div>
 
 		<section class="heading-section-banner">
 			<h1 class="text-white">FREE Ultimate Homebuyer’s Guide</h1>
@@ -39,7 +39,7 @@ include("template-parts/header.php");
 				<div class="col-md-7 p-3">
 					<h2 class="fs-1">Guiding Clients through The Most Important Business Decisions Of Their Lives</h2>
 					<p class="fs-4 lh-1">Our Wall-Street trained advisors & CPAs provide business valuation, sell side advisory, and tax optimization for $2-25 million+ revenue businesses.</p>
-					<p><a href="<?=$base_url;?>/sell-side-advisory.php">Sell Side Advisory</a> - <a href="<?=$base_url;?>/buy-side-advisory.php">Buy Side Advisory</a> - <a href="<?=$base_url;?>/capital-advisory.php">Capital Advisory</a></p>
+					
 				</div>
 
 				<div class="col-md-5 p-3">
@@ -109,7 +109,7 @@ include("template-parts/header.php");
 				</div>
 
 				<div class="col-md-5 text-center">
-					<img style="width:100%; max-width: 450px;" alt="dummy image" src="https://dummyimage.com/600x350/000/fff">
+					<img style="width:100%; max-width: 450px; border-radius: 5px;" alt="dummy image" src="<?=$base_url;?>/assets/img/62596869-b16e-4778-99e9-3da1b32bb55b.jpg">
 				</div>
 
 			</div>

@@ -40,7 +40,7 @@ h3{
 
 .main-nav-container .main-nav-menu .navbar-nav .nav-item .btn-container{
     padding-left: 80px;
-    padding-right: 10px;
+    padding-right: 80px;
 }
 footer{
     background-color: #FFF;
@@ -108,7 +108,7 @@ main.main-content{
 
 @media screen and (min-width: 1400px) {
     .section-container-overlay{
-        background-position: 0px 55%;
+        background-position: 0px 30%;
     }
 }
 
@@ -144,4 +144,77 @@ main.main-content{
   padding: 10px 30px;
   margin-bottom: 10px;
   border-radius: 10px;
+}
+
+
+
+
+
+/*////////////////////////////////////////////////////////////////////////////////////*/
+
+
+
+
+/* Mega Menu */
+/*.mega-dropdown {
+  position: static;
+}
+
+.mega-menu {
+  width: 100%;
+  padding: 30px 40px;
+  border: none;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}*/
+
+
+.mega-dropdown {
+  position: static;
+}
+
+
+.mega-menu {
+  left: 0;
+  right: 0;
+  top: 80px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 30px 40px;
+  transition: all 0.7s ease;
+}
+
+.mega-title {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #0b2a4a;
+}
+
+.mega-menu .dropdown-item {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.mega-menu .dropdown-item:hover {
+  background: none;
+  color: #ff9800;
+  padding-left: 5px;
+  transition: all 0.2s ease;
+}
+
+
+
+@media (max-width: 991px) {
+  .mega-menu {
+    padding: 20px;
+  }
+
+  .mega-menu .row {
+    flex-direction: column;
+  }
+
+  .mega-menu .col-md-4 {
+    margin-bottom: 20px;
+  }
 }
