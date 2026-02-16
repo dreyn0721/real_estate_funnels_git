@@ -66,7 +66,7 @@
         <h5>Contact</h5>
         <ul class="footer-links">
           <li><i class="fa fa-phone"></i> <a href="tel:+18457044685"> (845) 704-4685</a></li>
-          <li><i class="fa fa-envelope "></i> <span class="fs-6">professionaladvisor@kw.com</span> </li>
+          <li><i class="fa fa-envelope "></i> <span class="fs-6"><a href="mailto:professionaladvisor@kw.com">professionaladvisor@kw.com</a></span> </li>
           <li><i class="fa fa-map-marker"></i> United States</li>
         </ul>
 

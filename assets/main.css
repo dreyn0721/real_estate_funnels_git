@@ -172,6 +172,16 @@ main.main-content{
 }
 
 
+
+.header-hero-btn-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+
 @media screen and (min-width: 1400px) {
     .section-container-overlay{
         background-position: 0px 30%;

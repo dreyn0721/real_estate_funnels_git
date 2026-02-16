@@ -1,8 +1,8 @@
 <?php
 // Vars
 $page = "home";
-$pagetitle = "FREE Ultimate Homebuyer’s Guide | AR";
-$description = "Expert residential & commercial real estate services, including buying, selling, renting, property management, and business exit planning.";
+$pagetitle = "Your Complete Real Estate & Business Transition Partner | AR";
+$description = "As experts in commercial real estate, property selling, and business exit planning, we help owners and investors buy, sell, and transition assets with confidence. Our services include commercial property acquisition, valuation, strategic marketing, buyer representation, negotiation, and complete transaction support to ensure maximum return on investment.";
 
 
 
@@ -15,10 +15,16 @@ include("template-parts/header.php");
 		<div class="section-container-overlay"  style="background-image: url('<?=$base_url;?>/assets/img/9cf88d35-d88e-4798-b62e-58bced9ae766.jpg');"></div>
 
 		<section class="heading-section-banner">
-			<h1 class="text-white">FREE Ultimate Homebuyer’s Guide</h1>
-			<h3 class="text-white">We Help Business Owners Prepare, Value, and Sell Their Businesses For Life Changing Outcomes</h3>
-			<div>
-				<a class="theme-btn" href="<?=$base_url;?>/contact-us.php">Schedule a Consultation</a>
+			<div class="container">
+				<h1 class="text-white mb-4">Your Complete Real Estate & Business Transition Partner</h1>
+				<h3 class="text-white mb-3">We specialize in commercial real estate, property sales, and business exits—helping owners, investors, and entrepreneurs maximize value at every stage. From acquisition to final transaction, we deliver strategy, precision, and results.</h3>
+				<div>
+					<div class="header-hero-btn-container">
+						<a class="theme-btn" href="<?=$base_url;?>/contact-us.php">Residential</a>
+						<a class="theme-btn" href="<?=$base_url;?>/contact-us.php">Commercial</a>
+						<a class="theme-btn" href="<?=$base_url;?>/contact-us.php">Business</a>
+					</div>
+				</div>
 			</div>
 		</section>
 	</div>
@@ -49,7 +55,7 @@ include("template-parts/header.php");
 
 	<section class="why-choose-us">
 	  <div class="container mt-5 text-center">
-	    <h2 class="fs-1 mb-4">Why Clients Choose Us</h2>
+	    <h2 class="fs-1 mb-4">Why Clients Trust Me</h2>
 	    <p class="fs-4 mb-5">
 	      Buying or selling real estate is one of the most important financial decisions you’ll ever make.
 	      Our mission is to make the process smooth, transparent, and successful from start to finish.

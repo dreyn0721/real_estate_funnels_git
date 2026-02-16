@@ -42,8 +42,8 @@ include("template-parts/header.php"); ?>
 				</div>
 
 				<div class="form-group mt-4">
-					<label for="message">Please describe your business (required)</label>
-					<p>Industry, location, # employees, revenues, profits, etc.</p>
+					<label for="message">Please describe what you're looking for: (required)</label>
+					<!-- <p>Industry, location, # employees, revenues, profits, etc.</p> -->
 					<textarea name="message" rows=4 class="w-100 message"></textarea>
 				</div>
 
@@ -174,15 +174,17 @@ include("template-parts/header.php"); ?>
 <style type="text/css">
 	/* Modern Radio Group */
 	.radio-group {
-	  display: grid;
-	  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-	  gap: 20px;
+	  display: flex;
+/*	  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));*/
+	  gap: 5px;
 	  margin: 30px 0;
+	  flex-direction: column;
 	}
 
 	.radio-card {
 	  position: relative;
 	  cursor: pointer;
+	  width: 350px;
 	}
 
 	.radio-card input {
@@ -193,7 +195,7 @@ include("template-parts/header.php"); ?>
 
 	.radio-content {
 	  display: block;
-	  padding: 20px;
+	  padding: 5px 20px;
 	  border: 2px solid #ddd;
 	  border-radius: 8px;
 	  transition: all 0.3s ease;
@@ -238,6 +240,11 @@ include("template-parts/header.php"); ?>
 	  align-items: center;
 	  justify-content: center;
 	  font-size: 14px;
+	}
+
+	.main-form{
+		padding-top: 20px;
+		padding-bottom: 60px;
 	}
 </style>
 
