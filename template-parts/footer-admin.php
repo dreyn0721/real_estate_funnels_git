@@ -3,8 +3,7 @@
 
   <footer>
     <div class="container text-center">
-      <p class="footer-text">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus condimentum. 
-        &copy;<?=date("Y");?> All rights reserved.</p>
+      <p class="footer-text"> &copy; <?=date("Y");?> Professional Advisor. All rights reserved.</p>
     </div>
   </footer>
 

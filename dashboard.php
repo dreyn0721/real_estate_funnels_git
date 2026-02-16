@@ -21,42 +21,55 @@ if( !logged_in( "admin" ) ){
 
     
    <div class="container mt-5">
-    <h2>Funnels</h2>
+    <h2 class="mb-5">Residential Real Estate</h2>
 
 
 
-     <table class="table table-striped table-bordered">
+    <?php $entries = get_residential_real_estate_entry(); ?>
+
+    <!-- <pre><?php print_r( $entries ) ; ?></pre>  -->
+
+
+
+
+
+
+     <table id="entriesContainer" class="table table-striped table-bordered">
        <thead>
          <tr>
-           <th>Funnel Name</th>
-           <th>Funnel Form Url</th>
-           <th>Report Url</th>
+           <th>ID</th>
+           <th>First name</th>
+           <th>Last Name</th>
+           <th>Phone</th>
+           <th>Email</th>
+           <th>Message</th>
+
+           <th>Service</th>
+
+           <th>Datetime</th>
          </tr>
        </thead>
 
        <tbody>
-         <tr>
-           <td>business valuation exit entry</td>
-           <td><a href="<?php echo $base_url;?>/business_valuation_exit.php" target="_blank"><?php echo $base_url;?>/business_valuation_exit.php</a></td>
-           <td><a href="<?php echo $base_url;?>/entries_business_valuation_exit.php" class="btn btn-success">Visit</a></td>
-         </tr>
 
-
+        <?php foreach( $entries as $entry ): ?>
 
          <tr>
-           <td>commercial real estate</td>
-           <td><a href="<?php echo $base_url;?>/commercial_real_estate.php" target="_blank"><?php echo $base_url;?>/commercial_real_estate.php</a></td>
-           <td><a href="<?php echo $base_url;?>/entries_commercial_real_estate.php" class="btn btn-success">Visit</a></td>
+           <td><?=$entry['id'];?></td>
+           <td><?=$entry['firstname'];?></td>
+           <td><?=$entry['lastname'];?></td>
+           <td><?=$entry['phone'];?></td>
+           <td><?=$entry['email'];?></td>
+           <td><?=$entry['message'];?></td>
+           
+           <td><?=$entry['service'];?></td>
+
+           <td><?=$entry['datetimeinserted'];?></td>
          </tr>
 
+        <?php endforeach; ?>
 
-         <tr>
-           <td>residential real estate</td>
-           <td><a href="<?php echo $base_url;?>/contact-us.php" target="_blank"><?php echo $base_url;?>/contact-us.php</a></td>
-           <td><a href="<?php echo $base_url;?>/entries_residentialrealestate.php" class="btn btn-success">Visit</a></td>
-         </tr>
 
-         
        </tbody>
      </table>
 
@@ -67,13 +80,19 @@ if( !logged_in( "admin" ) ){
 
 
 
-
-
-
-
    </div>
 
+   <script type="text/javascript">
+     jQuery( document ).ready(function(){
+        $('#entriesContainer').DataTable({
+          paging: true,       // Enable pagination
+          searching: true,    // Enable search box
+          ordering: true,     // Enable sorting
+          info: true,         // Show table info
+          responsive: true    // Make table responsive
+      });
+     });
+   </script>
 
-
-<?php include("template-parts/footer.php"); ?>
+<?php include("template-parts/footer-admin.php"); ?>
 

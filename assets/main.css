@@ -42,17 +42,83 @@ h3{
     padding-left: 80px;
     padding-right: 80px;
 }
-footer{
-    background-color: #FFF;
-    padding: 20px 0;
+
+
+
+.mega-footer {
+  background: #0f1e2d;
+  color: #ffffff;
+  padding: 80px 0 30px;
 }
-footer .footer-text{
-    font-size: 12px;
-    margin: 0;
+
+.footer-logo {
+  max-width: 180px;
 }
+
+.mega-footer h5 {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.mega-footer p {
+  color: #cfd6df;
+  line-height: 1.6;
+}
+
+.footer-small {
+  font-size: 14px;
+  color: #aeb6c2;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+  color: #cfd6df;
+}
+
+.footer-links a {
+  color: #cfd6df;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #7EE0B1;
+}
+
+.footer-btn {
+  display: inline-block;
+  font-size: 14px;
+}
+
+.footer-divider {
+  border-color: rgba(255,255,255,0.1);
+  margin: 40px 0 20px;
+}
+
+.footer-socials a {
+  color: #ffffff;
+  margin-left: 15px;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #7EE0B1;
+}
+
+.footer-bottom {
+  font-size: 14px;
+}
+
+
+
 main.main-content{
     min-height: 800px;
-    padding-bottom: 50px;
 }
 
 .theme-btn{

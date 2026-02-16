@@ -68,27 +68,27 @@
 						      <!-- Residential -->
 						      <div class="col-md-4">
 						        <h6 class="mega-title">Residential</h6>
-						        <a class="dropdown-item" href="#">Selling</a>
-						        <a class="dropdown-item" href="#">Buying</a>
-						        <a class="dropdown-item" href="#">Rental</a>
-						        <a class="dropdown-item" href="#">Property Management</a>
+						        <a class="dropdown-item" href="<?php echo $base_url; ?>/residential-selling.php">Selling</a>
+						        <a class="dropdown-item" href="<?php echo $base_url; ?>/residential-buying.php">Buying</a>
+						        <a class="dropdown-item" href="<?php echo $base_url; ?>/residential-rental.php">Rental</a>
+						        <a class="dropdown-item" href="<?php echo $base_url; ?>/residential-property-management.php">Property Management</a>
 						      </div>
 
 						      <!-- Commercial -->
 						      <div class="col-md-4">
 						        <h6 class="mega-title">Commercial</h6>
-						        <a class="dropdown-item" href="#">Selling</a>
-						        <a class="dropdown-item" href="#">Buying</a>
-						        <a class="dropdown-item" href="#">Lease</a>
-						        <a class="dropdown-item" href="#">Property Management</a>
+						        <a class="dropdown-item" href="<?php echo $base_url; ?>/commercial-selling.php">Selling</a>
+						        <a class="dropdown-item" href="<?php echo $base_url; ?>/commercial-buying.php">Buying</a>
+						        <a class="dropdown-item" href="<?php echo $base_url; ?>/commercial-lease.php">Lease</a>
+						        <a class="dropdown-item" href="<?php echo $base_url; ?>/commercial-property-management.php">Property Management</a>
 						      </div>
 
 						      <!-- Business -->
 						      <div class="col-md-4">
 						        <h6 class="mega-title">Business</h6>
-						        <a class="dropdown-item" href="#">Exit Planning</a>
-						        <a class="dropdown-item" href="#">Valuation</a>
-						        <a class="dropdown-item" href="#">Ready to Exit</a>
+						        <a class="dropdown-item" href="<?php echo $base_url; ?>/business-exit-planning.php">Exit Planning</a>
+						        <a class="dropdown-item" href="<?php echo $base_url; ?>/business-valuation.php">Valuation</a>
+						        <a class="dropdown-item" href="<?php echo $base_url; ?>/business-ready-to-exit.php">Ready to Exit</a>
 						      </div>
 
 						    </div>

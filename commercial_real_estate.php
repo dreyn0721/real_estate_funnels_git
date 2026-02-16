@@ -5,8 +5,8 @@ error_reporting(0);
 
 
 $host = "localhost";
-$user = "root";
-$pass = "";
+$user = "dreyn";
+$pass = "e1J?3N'*2wB8";
 $dbname = "dreyn";
 
 

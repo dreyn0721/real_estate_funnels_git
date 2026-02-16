@@ -460,29 +460,29 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "entry" ){
 
 
 
-  if( isset( $_POST['businessvaluation'] ) && $_POST['businessvaluation'] ){
-    $businessvaluation = $_POST['businessvaluation'];
+  if( isset( $_POST['service'] ) && $_POST['service'] ){
+    $service = $_POST['service'];
   } else {
-    $businessvaluation = "0";
+    $errors[] = "Please select as service.";
   }
 
-  if( isset( $_POST['selling'] ) && $_POST['selling'] ){
-    $selling = $_POST['selling'];
-  } else {
-    $selling = "0";
-  }
+  // if( isset( $_POST['selling'] ) && $_POST['selling'] ){
+  //   $selling = $_POST['selling'];
+  // } else {
+  //   $selling = "0";
+  // }
 
-  if( isset( $_POST['buying'] ) && $_POST['buying'] ){
-    $buying = $_POST['buying'];
-  } else {
-    $buying = "0";
-  }
+  // if( isset( $_POST['buying'] ) && $_POST['buying'] ){
+  //   $buying = $_POST['buying'];
+  // } else {
+  //   $buying = "0";
+  // }
 
-  if( isset( $_POST['other'] ) && $_POST['other'] ){
-    $other = $_POST['other'];
-  } else {
-    $other = "0";
-  }
+  // if( isset( $_POST['other'] ) && $_POST['other'] ){
+  //   $other = $_POST['other'];
+  // } else {
+  //   $other = "0";
+  // }
 
 
 
@@ -512,10 +512,7 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "entry" ){
         message,
 
 
-        businessvaluation,
-        selling,
-        buying,
-        other,
+        service,
         posted_by_id,
 
         datetimeinserted
@@ -528,10 +525,7 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "entry" ){
         '$email', 
         '$message', 
 
-        '$businessvaluation',
-        '$selling',
-        '$buying',
-        '$other',
+        '$service',
         '$user_id',
 
         '$current_time'

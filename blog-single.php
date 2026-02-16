@@ -2,7 +2,7 @@
 // Vars
 $page = "blog";
 $pagetitle = "Blog | AR";
-$description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non euismod dolor. Integer sapien ipsum, dapibus eget bibendum sed nullam sodales.";
+$description = "Expert residential & commercial real estate services, including buying, selling, renting, property management, and business exit planning.";
 
 
 

@@ -10,118 +10,8 @@ $description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibu
 include("template-parts/header.php");
 ?>
 
-<h1 class="page-title">Blog</h1>
 
 
-
-<!-- Blog Form -->
-<?php if( isset( $userdata['role'] ) && $userdata['role'] && $userdata['role'] == "admin" ): ?>
-<div class="blog-form">
-  <h2>Create a Blog Post</h2>
-
-
-
-  <form class="form-grid article-form" method="post" action="">
-
-    <div class="response-container">
-    </div>
-    <input type="hidden" name="action" value="article-post">
-
-
-    <input type="text" class="article-title" name="article_title" placeholder="Blog Title">
-
-
-    <div class="upload-wrapper">
-      <input type="file" id="imageUpload" name="article_img" accept="image/*" hidden>
-      
-      <label for="imageUpload" class="upload-box">
-        <i class="fa-solid fa-cloud-arrow-up"></i>
-        <span>Upload blog image</span>
-        <small>PNG, JPG, WEBP</small>
-      </label>
-
-      <div class="image-preview" id="imagePreview">
-        <div class="upload-spinner" id="uploadSpinner">
-          <i class="fa fa-spinner" aria-hidden="true"></i>
-        </div>
-        <img id="previewImg" alt="Preview">
-      </div>
-
-
-    </div>
-
-
-    
-
-    <!-- <textarea id="blogEditor" name="article_description" class="article-description" placeholder="Write your blog description..." rows="15"></textarea> -->
-
-    <div class="container-fluid p-0 text-black" style="background: #fff; ">
-      <div id="editor-container"></div>
-    </div>
-
-
-  </form>
-  <button class=" article-submit-btn"><i class="fa fa-pencil-square-o"></i> Publish Post</button>
-</div>
-
-
-
-
-
-<?php endif; ?>
-
-
-
-
-
-
-
-
-<!-- Blog Cards -->
-<div class="blog-container">
-  <?php 
-
-  $the_articles = get_articles_feeds();
-
-  foreach( $the_articles as $the_article ): ?>
-
-    <a href="<?=$base_url;?>/blog-single.php?id=<?=$the_article['id'];?>" class="blog-card">
-
-      <div class="image-wrapper">
-        <div class="image-loader">
-          <i class="fa fa-spinner" aria-hidden="true"></i>
-        </div>
-        <img src="<?php echo $base_url.$the_article['img_url']; ?>" loading="lazy">
-      </div>
-
-      
-      <div class="blog-content">
-        <h3><?php echo $the_article['title'];?></h3>
-        <div class="date"><?php echo date("M d Y h:i A", strtotime( $the_article['datetimeinserted'] ));?></div>
-        <p><?php  
-          if( strlen( $the_article['description'] ) > 150 ){
-            echo substr($the_article['description'], 0, 150)."...";
-          } else {
-            $the_article['description'];
-          }
-            
-
-          ?></p>
-      </div>
-      <div class="blog-footer">
-        <!-- <span><i class="fa fa-heart"></i> 3</span> -->
-        <span><i class="fa fa-comment"></i> <?=$the_article['comment_counts'];?></span>
-      </div>
-    </a>
-
-  <?php endforeach; ?>
-
-  
-
-
-
-
-</div>
 
 
 <style>
@@ -152,7 +42,17 @@ body {
 .page-title {
   text-align: center;
   padding: 40px 20px 20px;
-  font-size: 2.8rem;
+  font-size: 3.2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blog-and-media-container h2 {
+  text-align: center;
+  padding: 40px 20px 20px;
+  font-size: 2rem;
   font-weight: 700;
   background: linear-gradient(90deg, var(--secondary), var(--primary));
   -webkit-background-clip: text;
@@ -226,21 +126,32 @@ body {
   margin: 60px auto;
   padding: 0 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
 
 /* Tablet */
 @media (max-width: 1024px) {
   .blog-container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .blog-container {
+    grid-template-columns: 1fr;
+  }
+
+  .media-container{
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
 
 /* Mobile */
 @media (max-width: 640px) {
   .blog-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -484,7 +395,330 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.blog-and-media-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.media-container{
+  max-width: 1300px;
+  margin: 60px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.blog-header-container{
+  padding: 15px;
+}
+.media-header-container{
+  padding: 15px;
+}
+
+
+.video-card {
+  background: #0B2A4A;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 35px 70px rgba(0,0,0,0.45);
+}
+
+/* Video area */
+.video-wrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Title */
+.video-card h3 {
+  margin: 0;
+  padding: 18px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0)
+  );
+}
+
+
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .blog-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+@media (max-width: 991px) {
+  .blog-container {
+    grid-template-columns: 1fr;
+  }
+
+  .media-container{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .blog-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+
 </style>
+
+
+
+
+
+
+
+<h1 class="page-title">Blog</h1>
+
+<div class="blog-and-media-container">
+
+
+  <div class="blog-contents">
+
+
+    <div class="blog-header-container">
+
+      <h2>Articles</h2>
+
+
+
+
+      <!-- Blog Form -->
+      <?php if( isset( $userdata['role'] ) && $userdata['role'] && $userdata['role'] == "admin" ): ?>
+      <div class="blog-form">
+        <h2>Create a Blog Post</h2>
+
+
+
+        <form class="form-grid article-form" method="post" action="">
+
+          <div class="response-container">
+          </div>
+          <input type="hidden" name="action" value="article-post">
+
+
+          <input type="text" class="article-title" name="article_title" placeholder="Blog Title">
+
+
+          <div class="upload-wrapper">
+            <input type="file" id="imageUpload" name="article_img" accept="image/*" hidden>
+            
+            <label for="imageUpload" class="upload-box">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <span>Upload blog image</span>
+              <small>PNG, JPG, WEBP</small>
+            </label>
+
+            <div class="image-preview" id="imagePreview">
+              <div class="upload-spinner" id="uploadSpinner">
+                <i class="fa fa-spinner" aria-hidden="true"></i>
+              </div>
+              <img id="previewImg" alt="Preview">
+            </div>
+
+
+          </div>
+
+
+          
+
+          <!-- <textarea id="blogEditor" name="article_description" class="article-description" placeholder="Write your blog description..." rows="15"></textarea> -->
+
+          <div class="container-fluid p-0 text-black" style="background: #fff; ">
+            <div id="editor-container"></div>
+          </div>
+
+
+        </form>
+        <button class=" article-submit-btn"><i class="fa fa-pencil-square-o"></i> Publish Post</button>
+      </div>
+      <?php endif; ?>
+
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Blog Cards -->
+    <div class="blog-container">
+      <?php 
+
+      $the_articles = get_articles_feeds();
+
+      foreach( $the_articles as $the_article ): ?>
+
+        <a href="<?=$base_url;?>/blog-single.php?id=<?=$the_article['id'];?>" class="blog-card">
+
+          <div class="image-wrapper">
+            <div class="image-loader">
+              <i class="fa fa-spinner" aria-hidden="true"></i>
+            </div>
+            <img src="<?php echo $base_url.$the_article['img_url']; ?>" loading="lazy">
+          </div>
+
+          
+          <div class="blog-content">
+            <h3><?php echo $the_article['title'];?></h3>
+            <div class="date"><?php echo date("M d Y h:i A", strtotime( $the_article['datetimeinserted'] ));?></div>
+            <p><?php  
+              if( strlen( $the_article['description'] ) > 150 ){
+                echo substr($the_article['description'], 0, 150)."...";
+              } else {
+                $the_article['description'];
+              }
+                
+
+              ?></p>
+          </div>
+          <div class="blog-footer">
+            <!-- <span><i class="fa fa-heart"></i> 3</span> -->
+            <span><i class="fa fa-comment"></i> <?=$the_article['comment_counts'];?></span>
+          </div>
+        </a>
+
+      <?php endforeach; ?>
+
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+  <div class="media-contents">
+    <div class="media-header-container">
+      <h2>Videos</h2>
+    </div>
+    <div class="media-container">
+
+
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video controls playsinline>
+            <source src="https://www.pexels.com/download/video/2278095/" type="video/mp4">
+          </video>
+        </div>
+        <h3>Cloud & DevOps</h3>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video controls playsinline>
+            <source src="https://www.pexels.com/download/video/2278095/" type="video/mp4">
+          </video>
+        </div>
+        <h3>AI Consultation</h3>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <video controls playsinline>
+            <source src="https://www.pexels.com/download/video/2278095/" type="video/mp4">
+          </video>
+        </div>
+        <h3>Data Analytics</h3>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+<script type="text/javascript">
+  const imageUpload = document.getElementById('imageUpload');
+  const imagePreview = document.getElementById('imagePreview');
+  const previewImg = document.getElementById('previewImg');
+  const uploadSpinner = document.getElementById('uploadSpinner');
+
+  imageUpload.addEventListener('change', () => {
+    const file = imageUpload.files[0];
+    if (!file) return;
+
+    // Show preview container + spinner
+    imagePreview.style.display = 'block';
+    uploadSpinner.style.display = 'flex';
+    previewImg.style.display = 'none';
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      // Simulate realistic loading delay (optional but nice UX)
+      setTimeout(() => {
+        previewImg.src = reader.result;
+        uploadSpinner.style.display = 'none';
+        previewImg.style.display = 'block';
+      }, 600);
+    };
+
+    reader.readAsDataURL(file);
+  });
+</script>
 
 
 <script type="text/javascript">
@@ -535,6 +769,11 @@ body {
       jQuery(".article-submit-btn").on("click", function(e){
         e.preventDefault();
         
+        jQuery(".article-submit-btn").prop('disabled', true);
+
+        jQuery(".response-container").hide();
+        jQuery(".response-container").html("");
+
         jQuery(".article-form").submit();
       });
     });
@@ -610,6 +849,12 @@ body {
           jQuery(".response-container").show();
           jQuery(".response-container").html(response);
         }
+
+
+
+        jQuery(".article-submit-btn").prop('disabled', false);
+
+
       });
 
 

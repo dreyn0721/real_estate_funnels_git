@@ -3,8 +3,8 @@ date_default_timezone_set('America/New_York');
 error_reporting(E_ALL);
 
 $host = "localhost";
-$user = "root";
-$pass = "";
+$user = "dreyn";
+$pass = "e1J?3N'*2wB8";
 $dbname = "dreyn";
 
 

@@ -49,24 +49,116 @@ include("template-parts/header.php"); ?>
 
 
 				<div class="mt-4">
-					<p>What do you need help with? (required)</p>
 					
 
-					<div class="form-group mb-3">
-						<input type="checkbox" name="businessvaluation" class="businessvaluation"> <label>Business valuation</label>
-					</div>
+					<div class="col-md-12 radio-input-container mt-5">
+					<p>What do you need help with? (required)</p>
+					<p>Services:</p>
+		        <div class="radio-group">
 
-					<div class="form-group mb-3">
-						<input type="checkbox" name="selling" class="selling"> <label>Selling a business</label>
-					</div>
 
-					<div class="form-group mb-3">
-						<input type="checkbox" name="buying" class="buying"> <label>Buying a business</label>
-					</div>
 
-					<div class="form-group mb-3">
-						<input type="checkbox" name="other" class="other"> <label>Other / not sure</label>
-					</div>
+	          <label class="radio-card">
+	            <input type="radio" name="serviceType" class="radio-input-service" value="Residential Selling" required>
+	            <span class="radio-content">
+	              <strong>Residential Selling</strong>
+	            </span>
+	          </label>
+
+
+
+	          <label class="radio-card">
+	            <input type="radio" name="serviceType" class="radio-input-service" value="Residential Buying" required>
+	            <span class="radio-content">
+	              <strong>Residential Buying</strong>
+	            </span>
+	          </label>
+
+
+
+	          <label class="radio-card">
+	            <input type="radio" name="serviceType" class="radio-input-service" value="Residential Rental" required>
+	            <span class="radio-content">
+	              <strong>Residential Rental</strong>
+	            </span>
+	          </label>
+
+
+
+	          <label class="radio-card">
+	            <input type="radio" name="serviceType" class="radio-input-service" value="Residential Property Management" required>
+	            <span class="radio-content">
+	              <strong>Residential Property Management</strong>
+	            </span>
+	          </label>
+
+
+
+	          <label class="radio-card">
+	            <input type="radio" name="serviceType" class="radio-input-service" value="Commercial Selling" required>
+	            <span class="radio-content">
+	              <strong>Commercial Selling</strong>
+	            </span>
+	          </label>
+
+
+
+	          <label class="radio-card">
+	            <input type="radio" name="serviceType" class="radio-input-service" value="Commercial Buying" required>
+	            <span class="radio-content">
+	              <strong>Commercial Buying</strong>
+	            </span>
+	          </label>
+
+
+
+	          <label class="radio-card">
+	            <input type="radio" name="serviceType" class="radio-input-service" value="Commercial Lease" required>
+	            <span class="radio-content">
+	              <strong>Commercial Lease</strong>
+	            </span>
+	          </label>
+
+
+
+	          <label class="radio-card">
+	            <input type="radio" name="serviceType" class="radio-input-service" value="Commercial Property Management" required>
+	            <span class="radio-content">
+	              <strong>Commercial Property Management</strong>
+	            </span>
+	          </label>
+
+
+
+	          <label class="radio-card">
+	            <input type="radio" name="serviceType" class="radio-input-service" value="Business Exit Planning" required>
+	            <span class="radio-content">
+	              <strong>Business Exit Planning</strong>
+	            </span>
+	          </label>
+
+
+
+	          <label class="radio-card">
+	            <input type="radio" name="serviceType" class="radio-input-service" value="Business Valuation" required>
+	            <span class="radio-content">
+	              <strong>Business Valuation</strong>
+	            </span>
+	          </label>
+
+
+
+	          <label class="radio-card">
+	            <input type="radio" name="serviceType" class="radio-input-service" value="Business Ready to Exit" required>
+	            <span class="radio-content">
+	              <strong>Business Ready to Exit</strong>
+	            </span>
+	          </label>
+
+
+
+		        </div>
+		      </div>
 
 				</div>
 
@@ -79,7 +171,75 @@ include("template-parts/header.php"); ?>
 	</div>
 
 
+<style type="text/css">
+	/* Modern Radio Group */
+	.radio-group {
+	  display: grid;
+	  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	  gap: 20px;
+	  margin: 30px 0;
+	}
 
+	.radio-card {
+	  position: relative;
+	  cursor: pointer;
+	}
+
+	.radio-card input {
+	  position: absolute;
+	  opacity: 0;
+	  pointer-events: none;
+	}
+
+	.radio-content {
+	  display: block;
+	  padding: 20px;
+	  border: 2px solid #ddd;
+	  border-radius: 8px;
+	  transition: all 0.3s ease;
+	  background: #fff;
+	}
+
+	.radio-content strong {
+	  display: block;
+	  font-size: 16px;
+	  color: #0b2a4a;
+	}
+
+	.radio-content small {
+	  color: #666;
+	}
+
+	/* Hover */
+	.radio-card:hover .radio-content {
+	  border-color: #172877;
+	  transform: translateY(-3px);
+	}
+
+	/* Checked state */
+	.radio-card input:checked + .radio-content {
+	  border-color: #172877;
+	  background: #fff8f0;
+	  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+	}
+
+	/* Checked indicator */
+	.radio-card input:checked + .radio-content::after {
+	  content: "✓";
+	  position: absolute;
+	  top: 15px;
+	  right: 15px;
+	  background: #172877;
+	  color: #fff;
+	  width: 26px;
+	  height: 26px;
+	  border-radius: 50%;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  font-size: 14px;
+	}
+</style>
 
 
 
@@ -100,29 +260,33 @@ include("template-parts/header.php"); ?>
 
 
 
-      if (jQuery(".main-form .businessvaluation").is(':checked')) {
-        var businessvaluation = "1";
-      } else {
-        var businessvaluation = "0";
-      }
+      // if (jQuery(".main-form .businessvaluation").is(':checked')) {
+      //   var businessvaluation = "1";
+      // } else {
+      //   var businessvaluation = "0";
+      // }
 
-      if (jQuery(".main-form .selling").is(':checked')) {
-        var selling = "1";
-      } else {
-        var selling = "0";
-      }
+      // if (jQuery(".main-form .selling").is(':checked')) {
+      //   var selling = "1";
+      // } else {
+      //   var selling = "0";
+      // }
 
-      if (jQuery(".main-form .buying").is(':checked')) {
-        var buying = "1";
-      } else {
-        var buying = "0";
-      }
+      // if (jQuery(".main-form .buying").is(':checked')) {
+      //   var buying = "1";
+      // } else {
+      //   var buying = "0";
+      // }
 
-      if (jQuery(".main-form .other").is(':checked')) {
-        var other = "1";
-      } else {
-        var other = "0";
-      }
+      // if (jQuery(".main-form .other").is(':checked')) {
+      //   var other = "1";
+      // } else {
+      //   var other = "0";
+      // }
+
+
+      
+      var service = jQuery('input[name="serviceType"]:checked').val();
 
 
 
@@ -140,10 +304,7 @@ include("template-parts/header.php"); ?>
           phone: phone,
           message: message,
 
-          businessvaluation: businessvaluation,
-          selling: selling,
-          buying: buying,
-          other: other
+          service: service
 
         }
       }).done(function( response ) {
@@ -156,10 +317,10 @@ include("template-parts/header.php"); ?>
             //location.reload();
 
             jQuery(".main-form .firstname").val("");
-			jQuery(".main-form .lastname").val("");
-			jQuery(".main-form .email").val("");
-			jQuery(".main-form .phone").val("");
-			jQuery(".main-form .message").val("");
+						jQuery(".main-form .lastname").val("");
+						jQuery(".main-form .email").val("");
+						jQuery(".main-form .phone").val("");
+						jQuery(".main-form .message").val("");
 
             jQuery(".response-container").show();
             jQuery(".response-container").html("<p>Your form submitted successfully, we will send you an email shortly. <br>Thank you</p>");

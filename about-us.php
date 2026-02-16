@@ -1,8 +1,8 @@
 <?php
 // Vars
-$page = "about-us";
+$page = "";
 $pagetitle = "About Us | AR";
-$description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non euismod dolor. Integer sapien ipsum, dapibus eget bibendum sed nullam sodales.";
+$description = "Learn about our trusted real estate team offering residential & commercial buying, selling, property management, and business exit planning.";
 
 
 include("template-parts/header.php"); 
@@ -12,27 +12,61 @@ include("template-parts/header.php");
 		<div class="section-container-overlay"  style="background-image: url('https://images.squarespace-cdn.com/content/v1/5c7990c7fb1820611961f360/1636287307899-T87A872YE7PUEYP7WJH6/unsplash-image-PhYq704ffdA.jpg');"></div>
 
 		<section class="heading-section-banner">
-			<h1 class="text-white">Wall Street Services For Main street Businesses</h1>
-			<h3 class="text-white">Our M&A Professionals Are Former Wall Street Bankers, CFOs, and CPAs</h3>
+			<h1 class="text-white">About Us</h1>
+			<p class="text-white">Learn about our trusted real estate team offering residential & commercial buying, selling, property management, and business exit planning.</p>
 			<div>
 				<a class="theme-btn" href="<?=$base_url;?>/contact-us.php">Contact Us</a>
 			</div>
 		</section>
 	</div>
 
-	<div class="container mt-5">
-		<h2>About Us</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus condimentum, nibh sit amet porttitor pellentesque, diam tortor consequat orci, eget vestibulum dui quam vitae justo. Nulla diam sem, convallis ac leo vel, lobortis rhoncus ex. Integer lacinia volutpat varius. Nullam sagittis sapien quis rutrum viverra. Nam consequat congue nulla. Vivamus auctor, tellus ac fringilla semper, lacus lectus viverra libero, vel iaculis turpis nunc aliquet urna. Nulla facilisi.</p>
+	<section class="about-us-section">
+	  <div class="container mt-5">
+	    <div class="row align-items-center g-4">
 
-		<p>Aenean semper efficitur mi vitae feugiat. Nulla rhoncus sit amet ex et bibendum. Nunc at odio odio. Aliquam erat volutpat. Vivamus fermentum nibh neque, sed dignissim ligula dictum id. Praesent iaculis lacus eget lacus iaculis, sit amet facilisis elit dapibus. Ut vehicula arcu vel lacus iaculis ultricies.</p>
+	      <!-- Image Content -->
+	      <div class="col-md-6 text-center">
+	        <img src="assets/img/9cf88d35-d88e-4798-b62e-58bced9ae766.jpg" alt="About Our Real Estate Team" class="img-fluid rounded">
+	      </div>
 
-		<p>Aliquam eleifend ullamcorper dictum. Aenean accumsan posuere iaculis. Nulla facilisi. Etiam rutrum mi mi, eu facilisis ex pulvinar a. Praesent eget felis quis dui dictum tempus imperdiet vitae ligula. Proin malesuada lacus ipsum, interdum sollicitudin nunc tincidunt quis. Integer ac mauris dignissim tellus cursus porttitor. Donec bibendum est vel dapibus blandit.</p>
+	      <!-- Text Content -->
+	      <div class="col-md-6">
+	        <h2 class="fs-1 mb-3">About Our Real Estate Experts</h2>
+	        <h4 class="fs-5 mb-4 text-muted">Trusted guidance for residential, commercial, and business property solutions.</h4>
+	        <p class="fs-5 mb-4">
+	          Our experienced team of real estate professionals is dedicated to helping clients achieve their property goals.
+	          Whether you are buying, selling, renting, or managing residential or commercial properties, we provide personalized
+	          guidance, market insights, and strategic advice to maximize value and simplify the process.
+	        </p>
+	        <p class="fs-5 mb-4">
+	          For business owners looking to transition or exit, our Exit Planning services ensure a smooth, profitable, and well-structured process.
+	          With a focus on integrity, professionalism, and results, we deliver trusted expertise every step of the way.
+	        </p>
+	        <a href="<?php echo $base_url;?>/contact-us.php" class="theme-btn">Meet Our Team / Contact Us</a>
+	      </div>
 
-		<p>Donec laoreet eros leo, eget venenatis felis porta vel. Sed orci urna, malesuada tristique mollis ac, accumsan at nunc. Pellentesque lobortis sagittis eros at tincidunt. Integer scelerisque maximus risus id accumsan. Etiam ullamcorper dui fringilla justo blandit pulvinar. Sed aliquam nibh quam, ut interdum augue iaculis sit amet. Pellentesque feugiat metus eu metus hendrerit, non varius dolor eleifend. Praesent non dictum lectus. Donec tincidunt dolor vitae venenatis mollis. Donec quis purus odio. Mauris enim ligula, dictum ut euismod vel, maximus id dui. Praesent ligula urna, finibus ac rhoncus nec, ultrices non mi. Nullam id sem non est faucibus cursus in quis ligula. In venenatis erat et sem sollicitudin, quis lacinia risus suscipit. Nunc porttitor in lacus vitae hendrerit. Suspendisse volutpat vitae neque auctor fringilla.</p>
+	    </div>
+	  </div>
+	</section>
 
-		<p>Aenean vel mattis est. Proin luctus eu quam vitae sagittis. Vivamus fringilla consectetur metus, vitae faucibus orci elementum quis. In eu elit tempus turpis vulputate sagittis. Nam ullamcorper interdum nunc a vestibulum. Sed erat metus, efficitur tincidunt rhoncus sed, convallis nec risus. Vivamus efficitur semper arcu, at tempor neque lacinia vel. Vivamus a sapien viverra, molestie nisl id, interdum eros. Fusce ullamcorper, augue quis molestie tincidunt, libero est dapibus tellus, id facilisis libero enim sit amet sapien. Aenean vel semper nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi bibendum sit amet nisi vel placerat.</p>
+<style type="text/css">
+	.about-us-section {
+	  background-color: #f4f4f4;
+	  padding: 80px 0;
+	}
 
-		
-	</div>
+	.about-us-section h2 {
+	  font-weight: 700;
+	}
+
+	.about-us-section p {
+	  line-height: 1.6;
+	}
+
+	.about-us-section h4 {
+	  color: #555;
+	  font-weight: 500;
+	}
+</style>
 
 <?php include("template-parts/footer.php"); ?>

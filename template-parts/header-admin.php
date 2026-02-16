@@ -19,6 +19,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/2.3.7/css/dataTables.dataTables.min.css">
+	<script type="text/javascript" src="//cdn.datatables.net/2.3.7/js/dataTables.min.js"></script>
+
+
 	<meta name="description" content="<?=$description;?>">
 	<meta name="author" content="<?=$author;?>" />
 	<title><?=$pagetitle;?></title>
