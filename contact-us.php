@@ -43,8 +43,16 @@ include("template-parts/header.php"); ?>
 
 				<div class="form-group mt-4">
 					<label for="message">Please describe what you're looking for: (required)</label>
+					<div class="" style="border: solid 1px #E1E1E1; border-radius: 5px; padding: 10px; margin: 10px 0">
+						<p>Example Messages:</p>
+						<ul>
+							<li>Residential – Looking to sell my home or explore cash offers</li>
+							<li>Commercial – Interested in buying or listing a property</li>
+							<li>Business – Need a valuation or planning an exit</li>
+						</ul>
+					</div>
 					<!-- <p>Industry, location, # employees, revenues, profits, etc.</p> -->
-					<textarea name="message" rows=4 class="w-100 message"></textarea>
+					<textarea name="message" rows=4 class="w-100 message" placeholder="Type of inquiry: Residential (cash/listing), Commercial (buy/sell), Business (valuation/exit)"></textarea>
 				</div>
 
 
@@ -229,7 +237,7 @@ include("template-parts/header.php"); ?>
 	.radio-card input:checked + .radio-content::after {
 	  content: "✓";
 	  position: absolute;
-	  top: 15px;
+	  top: 6px;
 	  right: 15px;
 	  background: #172877;
 	  color: #fff;

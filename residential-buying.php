@@ -37,8 +37,8 @@ include("template-parts/header.php");
 	        <h2 class="fs-1 mb-3">Find Your Perfect Home</h2>
 	        <p class="fs-5 mb-4">
 	          Buying a home is one of the most important decisions of your life. Our team of
-	          real estate experts guides you every step of the way — from property search and
-	          market analysis to negotiation and closing — so you can buy confidently.
+	          real estate experts guides you every step of the way, from property search and
+	          market analysis to negotiation and closing, so you can buy confidently.
 	        </p>
 	        <ul class="buying-benefits list-unstyled mb-4">
 	          <li><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Access to on- and off-market listings</li>

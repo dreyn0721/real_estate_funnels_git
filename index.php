@@ -16,8 +16,8 @@ include("template-parts/header.php");
 
 		<section class="heading-section-banner">
 			<div class="container">
-				<h1 class="text-white mb-4">Your Complete Real Estate & Business Transition Partner</h1>
-				<h3 class="text-white mb-3">We specialize in commercial real estate, property sales, and business exits—helping owners, investors, and entrepreneurs maximize value at every stage. From acquisition to final transaction, we deliver strategy, precision, and results.</h3>
+				<h1 class="text-white mb-4">Structuring Real Estate & Business Success</h1>
+				<h3 class="text-white mb-3">We specialize in commercial real estate, property sales, and business exits, helping owners, investors, and entrepreneurs maximize value at every stage. From acquisition to final transaction, we deliver strategy, precision, and results.</h3>
 				<div>
 					<div class="header-hero-btn-container">
 						<a class="theme-btn" href="<?=$base_url;?>/contact-us.php">Residential</a>
@@ -53,12 +53,96 @@ include("template-parts/header.php");
 
 
 
+
+
+
+
+
+
+
+
+<section class="buy-sell-section">
+  <div class="container mt-5">
+    <div class="row g-4 align-items-stretch">
+
+      <!-- Buying -->
+      <div class="col-md-4">
+        <div class="buy-sell-card h-100">
+          <h3 class="mb-3">
+            <i class="fa fa-home me-2"></i> Buying a Property
+          </h3>
+          <p class="fs-5">
+            Finding the right home goes beyond listings. We help you identify the best opportunities,
+            negotiate confidently, and navigate the buying process with clarity and peace of mind.
+          </p>
+          <ul>
+            <li>Access to on- and off-market properties</li>
+            <li>Strategic offer & negotiation support</li>
+            <li>Guidance through inspections & closing</li>
+          </ul>
+          <a class="theme-btn mt-3 d-inline-block" href="contact-us.php">
+            Get Buyer Assistance
+          </a>
+        </div>
+      </div>
+
+      <!-- Selling -->
+      <div class="col-md-4">
+        <div class="buy-sell-card h-100 highlighted">
+          <h3 class="mb-3">
+            <i class="fa fa-tag me-2"></i> Selling a Property
+          </h3>
+          <p class="fs-5">
+            Selling your property requires the right pricing, marketing, and negotiation strategy.
+            We position your home to attract serious buyers and maximize your return.
+          </p>
+          <ul>
+            <li>Professional pricing & market analysis</li>
+            <li>High-quality marketing & exposure</li>
+            <li>Offer evaluation & contract negotiation</li>
+          </ul>
+          <a class="theme-btn mt-3 d-inline-block" href="contact-us.php">
+            Get Seller Guidance
+          </a>
+        </div>
+      </div>
+
+      <!-- Exit Planning -->
+      <div class="col-md-4">
+        <div class="buy-sell-card h-100 ">
+          <h3 class="mb-3">
+            <i class="fa fa-sign-out me-2"></i> Business Exit Planning
+          </h3>
+          <p class="fs-5">
+            Business exit planning helps owners maximize company value and transition on their terms. A clear strategy protects your legacy, reduces risk, and ensures a smooth exit.
+          </p>
+          <ul>
+            <li>Maximize Business Value</li>
+            <li>Structured & Stress-Free Process</li>
+            <li>Confidential & Targeted Exposure</li>
+          </ul>
+          <a class="theme-btn mt-3 d-inline-block" href="contact-us.php">
+            Get Business Valuation
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
 	<section class="why-choose-us">
 	  <div class="container mt-5 text-center">
 	    <h2 class="fs-1 mb-4">Why Clients Trust Me</h2>
 	    <p class="fs-4 mb-5">
-	      Buying or selling real estate is one of the most important financial decisions you’ll ever make.
-	      Our mission is to make the process smooth, transparent, and successful from start to finish.
+	      My mission is to make the process smooth, transparent, and successful from start to finish.
 	    </p>
 
 	    <div class="row g-4">
@@ -68,8 +152,7 @@ include("template-parts/header.php");
 	          <i class="fa fa-map-marker fa-3x mb-3"></i>
 	          <h4>Local Market Expertise</h4>
 	          <p>
-	            We understand neighborhood trends, pricing strategies, and local market conditions
-	            to help you maximize value and avoid costly mistakes.
+	            Understanding Neighborhood Trends, Pricing strategies, and local market conditions to help you maximize value and avoid costly mistakes.
 	          </p>
 	        </div>
 	      </div>
@@ -79,8 +162,7 @@ include("template-parts/header.php");
 	          <i class="fa fa-handshake-o fa-3x mb-3"></i>
 	          <h4>Client-First Approach</h4>
 	          <p>
-	            Your goals come first. We provide honest advice, clear communication,
-	            and personalized strategies tailored to your real estate needs.
+	            Your goals come first. Providing honest advice, clear communication, and personalized strategies tailored to your real estate  and business needs is what will make you successful.
 	          </p>
 	        </div>
 	      </div>
@@ -90,8 +172,7 @@ include("template-parts/header.php");
 	          <i class="fa fa-line-chart fa-3x mb-3"></i>
 	          <h4>Proven Results</h4>
 	          <p>
-	            From first-time buyers to seasoned investors, we deliver results through
-	            strong negotiation, smart marketing, and expert guidance.
+	            From first-time buyers to seasoned investors, delivering results through strong negotiation, smart marketing, and expert guidance.
 	          </p>
 	        </div>
 	      </div>
@@ -99,7 +180,7 @@ include("template-parts/header.php");
 	    </div>
 
 	    <div class="mt-5">
-	      <a class="theme-btn" href="contact-us.php">Start Your Real Estate Journey</a>
+	      <a class="theme-btn" href="contact-us.php">Start Your Journey</a>
 	    </div>
 	  </div>
 	</section>
@@ -107,9 +188,9 @@ include("template-parts/header.php");
 
 
 
-	<section>
+	<!-- <section class="our-process-get-results">
 		<div class="opgr container text-center">
-			<h2 class="fs-1">Our Process Gets Results</h2>
+			<h2 class="fs-1">Take off completely</h2>
 			<p class="mb-0"><i class="fa fa-check-square" aria-hidden="true" style="color: #7EE0B1;"></i> Deep Valuation & Financial Analysis</p>
 			<p class="mb-0"><i class="fa fa-check-square" aria-hidden="true" style="color: #7EE0B1;"></i> Detailed Marketing Materials</p>
 			<p class="mb-0"><i class="fa fa-check-square" aria-hidden="true" style="color: #7EE0B1;"></i> Marketing to Our Private Qualified Buyer’s Lists</p>
@@ -144,12 +225,12 @@ include("template-parts/header.php");
 
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 
-	<section class="pb-4">
+	<!-- <section class="pb-5 pt-4">
 		<div class="container mt-3">
-			<h2 class="fs-1">Successful Transactions</h2>
+			<h2 class="fs-1">Take off Completely</h2>
 			<div class="row align-items-center p-2">
 
 				<div class="col-md-7 ">
@@ -171,7 +252,7 @@ include("template-parts/header.php");
 			</div>
 		</div>
 	</section>
-
+ -->
 
 
 
@@ -189,32 +270,35 @@ include("template-parts/header.php");
       <div class="col-md-6 p-3">
         <h2 class="fs-1">Trusted Real Estate Guidance You Can Rely On</h2>
         <p class="fs-4">
-          Whether you’re buying your first home, selling a property, or investing in real estate,
-          our team provides expert guidance every step of the way. We combine local market insight,
-          data-driven strategies, and personalized service to help you make confident real estate decisions.
+          Whether you’re buying or selling a home, acquiring or disposing of commercial property, or purchasing or exiting a business, our team provides expert advisory services at every stage of the transaction.
+        </p>
+        <p class="fs-4">
+        We combine deep local market insight, financial analysis, valuation strategy, and personalized representation to help you make confident, strategic decisions.
         </p>
 
         <ul class="list-unstyled mt-4" style="color:#5E5E5E;">
-          <li class="mb-2">
-            <i class="fa fa-check-circle" style="color:#7EE0B1;"></i>
-            Residential buying & selling representation
-          </li>
-          <li class="mb-2">
-            <i class="fa fa-check-circle" style="color:#7EE0B1;"></i>
-            Home valuation & pricing strategy
-          </li>
-          <li class="mb-2">
-            <i class="fa fa-check-circle" style="color:#7EE0B1;"></i>
-            Investment & rental property consulting
-          </li>
-          <li class="mb-2">
-            <i class="fa fa-check-circle" style="color:#7EE0B1;"></i>
-            Negotiation, contracts & closing support
-          </li>
+        	<h3>Our Services Include:</h3>
+          <li class="mb-2"><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Residential buying & selling representation</li>
+					<li class="mb-2"><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Commercial property acquisition & disposition</li>
+					<li class="mb-2"><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Business brokerage & M&A advisory</li>
+					<li class="mb-2"><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Property and business valuation & pricing strategy</li>
+					<li class="mb-2"><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Investment & income-producing asset consulting</li>
+					<li class="mb-2"><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Financial underwriting & deal structuring</li>
+					<li class="mb-2"><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Negotiation, contract management & closing coordination</li>
+					<li class="mb-2"><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Due diligence guidance & transition planning</li>
         </ul>
 
+        <p>We don’t just facilitate transactions, we advise, structure, and execute opportunities that align with your long-term goals.</p>
+
+
+
+
+
+
+
+
         <div class="mt-4">
-          <a class="theme-btn" href="contact-us.php">Get Your Free Consultation</a>
+          <a class="theme-btn" href="contact-us.php">Schedule Your Strategy Session</a>
         </div>
       </div>
 
@@ -236,90 +320,75 @@ include("template-parts/header.php");
 
 
 
-<section class="buy-sell-section">
-  <div class="container mt-5">
-    <div class="row g-4 align-items-stretch">
-
-      <!-- Buying -->
-      <div class="col-md-6">
-        <div class="buy-sell-card h-100">
-          <h3 class="mb-3">
-            <i class="fa fa-home me-2"></i> Buying a Home
-          </h3>
-          <p class="fs-5">
-            Finding the right home goes beyond listings. We help you identify the best opportunities,
-            negotiate confidently, and navigate the buying process with clarity and peace of mind.
-          </p>
-          <ul>
-            <li>Access to on- and off-market properties</li>
-            <li>Strategic offer & negotiation support</li>
-            <li>Guidance through inspections & closing</li>
-          </ul>
-          <a class="theme-btn mt-3 d-inline-block" href="contact-us.php">
-            Get Buyer Assistance
-          </a>
-        </div>
-      </div>
-
-      <!-- Selling -->
-      <div class="col-md-6">
-        <div class="buy-sell-card h-100 highlighted">
-          <h3 class="mb-3">
-            <i class="fa fa-tag me-2"></i> Selling Your Property
-          </h3>
-          <p class="fs-5">
-            Selling your property requires the right pricing, marketing, and negotiation strategy.
-            We position your home to attract serious buyers and maximize your return.
-          </p>
-          <ul>
-            <li>Professional pricing & market analysis</li>
-            <li>High-quality marketing & exposure</li>
-            <li>Offer evaluation & contract negotiation</li>
-          </ul>
-          <a class="theme-btn mt-3 d-inline-block" href="contact-us.php">
-            Get Seller Guidance
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
 
 <section class="areas-serve-section">
   <div class="container mt-5 text-center">
     <h2 class="fs-1 mb-3">Areas We Serve</h2>
     <p class="fs-4 mb-5">
-      We proudly help buyers and sellers across key local markets,
-      providing expert real estate guidance wherever you need it.
+      We provide advisory and brokerage services across residential real estate, commercial assets, and business acquisitions, with a strategic, multi-market approach.
     </p>
 
     <div class="row g-4 justify-content-center">
 
       <div class="col-md-3 col-sm-6">
-        <div class="area-card">Downtown</div>
+        <div class="area-card">
+	        <strong>New York Residential</strong>
+	      </div>
       </div>
 
       <div class="col-md-3 col-sm-6">
-        <div class="area-card">Uptown</div>
+        <div class="area-card">
+        	<strong>New York Commercial</strong>
+        </div>
       </div>
 
       <div class="col-md-3 col-sm-6">
-        <div class="area-card">Suburban Areas</div>
+        <div class="area-card">
+        	<strong>Nationwide Business Brokerage</strong>
+        </div>
       </div>
 
       <div class="col-md-3 col-sm-6">
-        <div class="area-card">Surrounding Cities</div>
+        <div class="area-card">
+        	<strong>National Referral Network</strong>
+        </div>
       </div>
+
+
 
     </div>
+
+      <p>Licensed in <strong>New York State</strong>, we represent buyers, sellers, and investors throughout the Hudson Valley and beyond.</p>
+      <p>Through our national network, we also connect clients with vetted top-performing agents across the country when opportunities arise outside of NY.
+<strong>Business Brokerage & M&A Advisory</strong></p>
+<p>We advise and facilitate business sales and acquisitions across the United States, with the exception of states requiring a real estate license to transact business transfers. Our focus is on strategic valuation, deal structuring, and confidential representation for owners and buyers nationwide.</p>
+<p>Whether local or national, residential or commercial, property or operating business, we provide structured guidance designed to protect value and maximize opportunity.</p>
+
+    <!-- <div class="row g-4 justify-content-center">
+      <div class="col-md-3 col-sm-6">
+        <div class="area-card">
+	        <strong>New York Residential <br>(NY only)</strong>
+	      </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="area-card">
+        	<strong>New York Commercial <br>(NY only)</strong>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="area-card">
+        	<strong>Nationwide Business Brokerage <br>(Nationwide)</strong>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="area-card">
+        	<strong>National Referral Network</strong>
+        </div>
+      </div>
+    </div> -->
   </div>
 </section>
 
@@ -331,7 +400,7 @@ include("template-parts/header.php");
 
 <section class="testimonials-section">
   <div class="container mt-5 text-center">
-    <h2 class="fs-1 mb-5">What Our Clients Say</h2>
+    <h2 class="fs-1 mb-5">What My Past Clients Say</h2>
 
     <div class="row g-4">
 
@@ -371,7 +440,7 @@ include("template-parts/header.php");
     </div>
 
     <div class="mt-5">
-      <a class="theme-btn" href="contact-us.php">Work With Us</a>
+      <a class="theme-btn" href="contact-us.php">Work With Me</a>
     </div>
   </div>
 </section>
@@ -382,7 +451,7 @@ include("template-parts/header.php");
 
 <section class="market-insights-section">
   <div class="container mt-5 text-center">
-    <h2 class="fs-1 mb-4">Local Market Insights</h2>
+    <h2 class="fs-1 mb-4">Take this off completely</h2>
     <p class="fs-4 mb-5">
       We use real data and local expertise to help you make smarter real estate decisions.
     </p>
@@ -429,14 +498,17 @@ include("template-parts/header.php");
 <section class="cta-banner">
   <div class="container text-center">
     <h2 class="fs-1 mb-3 text-white">
-      Ready to Buy or Sell Real Estate?
+      Let’s Structure Your Next Opportunity
     </h2>
+    <p class="fs-4 mb-2 text-white">
+      Residential. Commercial. Business.
+    </p>
     <p class="fs-4 mb-4 text-white">
-      Get expert guidance and a personalized strategy — no pressure, no obligation.
+      Advisory-driven representation tailored to your long-term vision.
     </p>
 
     <a class="theme-btn" href="contact-us.php">
-      Schedule Your Free Consultation
+      <span style="color: #ECC045"><i class="fa fa-hand-o-right" aria-hidden="true"></i></span> Request a Private Strategy Call
     </a>
   </div>
 </section>
@@ -486,6 +558,11 @@ include("template-parts/header.php");
 
 
 	.buy-sell-section {
+	  background-color: #f4f4f4;
+	  padding: 70px 0;
+	}
+
+	.our-process-get-results{
 	  background-color: #f4f4f4;
 	  padding: 70px 0;
 	}

@@ -54,18 +54,17 @@
       <div class="col-lg-2 col-md-6">
         <h5>Areas We Serve</h5>
         <ul class="footer-links">
-          <li>Downtown</li>
-          <li>Uptown</li>
-          <li>Suburban Areas</li>
-          <li>Surrounding Cities</li>
-          <li>Nearby Counties</li>
+          <li>Residential Real Estate (NY only)</li>
+          <li>Commercial Real Estate (NY only)</li>
+          <li>Business Brokerage (Nationwide)</li>
+          <li>National Referral Network</li>
         </ul>
       </div>
       <!-- Contact & CTA -->
       <div class="col-lg-3 col-md-6">
         <h5>Contact</h5>
         <ul class="footer-links">
-          <li><i class="fa fa-phone"></i> <a href="tel:+18457044685"> (845) 704-4685</a></li>
+          <li><i class="fa fa-phone"></i> <a href="tel:+18452622067"> (845) 262-2067</a></li>
           <li><i class="fa fa-envelope "></i> <span class="fs-6"><a href="mailto:professionaladvisor@kw.com">professionaladvisor@kw.com</a></span> </li>
           <li><i class="fa fa-map-marker"></i> United States</li>
         </ul>
@@ -109,5 +108,13 @@
 
 		});
 	</script>
+
+
+
+
+  <!-- begin Widget Tracker Code -->
+<script>
+(function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function() {(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"), (t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i; e.parentNode.insertBefore(t,e);}) (window,"https://widgetbe.com/agent",document,"widgetTracker"); window.widgetTracker("create", "WT-PONMIRJK"); window.widgetTracker("send", "pageview");
+</script> <!-- end Widget Tracker Code -->
 </body>
 </html>

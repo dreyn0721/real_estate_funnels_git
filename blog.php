@@ -68,6 +68,7 @@ body {
   border-radius: 20px;
   backdrop-filter: blur(18px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  min-width: unset;
 }
 
 .blog-form h2 {
@@ -102,7 +103,7 @@ body {
   resize: none;
 }
 
-.blog-form button {
+.blog-form button.article-submit-btn {
   margin-top: 20px;
   padding: 14px 28px;
   border: none;
@@ -115,7 +116,7 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.blog-form button:hover {
+.blog-form button.article-submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(0,229,255,0.4);
 }
@@ -241,11 +242,11 @@ body {
 
 
 .upload-wrapper {
-  display: flex;
+  display: column;
   gap: 20px;
   align-items: center;
-  grid-column: 1 / -1;
-  max-width: 400px;
+/*  grid-column: 1 / -1;*/
+/*  max-width: 400px;*/
 }
 
 .upload-box {
@@ -478,6 +479,82 @@ body {
 
 
 
+
+
+
+
+
+
+
+/*//////*/
+.multi-preview{
+  display:flex;
+  flex-direction: row;
+  gap:15px;
+  flex-wrap:wrap;
+/*  max-width:500px;*/
+  padding: 15px;
+}
+
+.preview-item{
+  width:180px;
+  height:150px;
+  border-radius:16px;
+  overflow:hidden;
+  position:relative;
+  background:rgba(0,0,0,0.35);
+  min-width: unset;
+  width: auto;
+}
+
+.preview-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:none;
+}
+
+.preview-item .upload-spinner{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(
+    145deg,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.25)
+  );
+  z-index:2;
+}
+
+.remove-image{
+  position:absolute;
+  top:8px;
+  right:8px;
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  border:none;
+  background:#00B75C;
+  color:#fff;
+  cursor:pointer;
+  font-size:14px;
+  z-index:3;
+}
+/*//////*/
+
+
+
+
+
+
+
+
+
+
+
+
 /* Tablet */
 @media (max-width: 1024px) {
   .blog-container {
@@ -502,6 +579,12 @@ body {
 @media (max-width: 640px) {
   .blog-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .blog-and-media-container{
+    grid-template-columns: 1fr;
   }
 }
 
@@ -537,7 +620,7 @@ body {
 
 
 
-        <form class="form-grid article-form" method="post" action="">
+        <form class="form-grid article-form" method="post" action=""  enctype="multipart/form-data">
 
           <div class="response-container">
           </div>
@@ -548,7 +631,8 @@ body {
 
 
           <div class="upload-wrapper">
-            <input type="file" id="imageUpload" name="article_img" accept="image/*" hidden>
+
+            <input type="file" id="imageUpload" name="article_img[]" accept="image/*" multiple hidden >
             
             <label for="imageUpload" class="upload-box">
               <i class="fa-solid fa-cloud-arrow-up"></i>
@@ -556,28 +640,24 @@ body {
               <small>PNG, JPG, WEBP</small>
             </label>
 
-            <div class="image-preview" id="imagePreview">
-              <div class="upload-spinner" id="uploadSpinner">
+            <div class="multi-preview" id="imagePreview">
+              <!-- <div class="upload-spinner" id="uploadSpinner">
                 <i class="fa fa-spinner" aria-hidden="true"></i>
-              </div>
-              <img id="previewImg" alt="Preview">
+              </div> -->
+              <!-- <img id="previewImg" alt="Preview"> -->
             </div>
 
 
           </div>
 
 
-          
-
-          <!-- <textarea id="blogEditor" name="article_description" class="article-description" placeholder="Write your blog description..." rows="15"></textarea> -->
-
           <div class="container-fluid p-0 text-black" style="background: #fff; ">
             <div id="editor-container"></div>
           </div>
 
+          <button class=" article-submit-btn" type="submit"><i class="fa fa-pencil-square-o"></i> Publish Post</button>
 
         </form>
-        <button class=" article-submit-btn"><i class="fa fa-pencil-square-o"></i> Publish Post</button>
       </div>
       <?php endif; ?>
 
@@ -604,7 +684,25 @@ body {
             <div class="image-loader">
               <i class="fa fa-spinner" aria-hidden="true"></i>
             </div>
-            <img src="<?php echo $base_url.$the_article['img_url']; ?>" loading="lazy">
+
+
+            <?php 
+            if( isset( $the_article['img_url'] ) && $the_article['img_url'] ){
+              $the_article_images = json_decode( $the_article['img_url'], true );
+              if( isset( $the_article_images[0] ) && $the_article_images[0] ){
+
+
+            ?>
+            <img src="<?php echo $base_url."/assets/article_imgs/".$the_article_images[0]; ?>" loading="lazy">
+            <?php
+
+
+              }
+            }
+            ?>
+
+
+            
           </div>
 
           
@@ -689,35 +787,73 @@ body {
 </div>
 
 
-
 <script type="text/javascript">
   const imageUpload = document.getElementById('imageUpload');
   const imagePreview = document.getElementById('imagePreview');
-  const previewImg = document.getElementById('previewImg');
-  const uploadSpinner = document.getElementById('uploadSpinner');
 
-  imageUpload.addEventListener('change', () => {
-    const file = imageUpload.files[0];
-    if (!file) return;
+  // Store selected files
+  let storedFiles = new DataTransfer();
 
-    // Show preview container + spinner
-    imagePreview.style.display = 'block';
-    uploadSpinner.style.display = 'flex';
-    previewImg.style.display = 'none';
+  imageUpload.addEventListener('change', (e) => {
 
-    const reader = new FileReader();
+      const newFiles = Array.from(e.target.files);
 
-    reader.onload = () => {
-      // Simulate realistic loading delay (optional but nice UX)
-      setTimeout(() => {
-        previewImg.src = reader.result;
-        uploadSpinner.style.display = 'none';
-        previewImg.style.display = 'block';
-      }, 600);
-    };
+      newFiles.forEach(file => {
 
-    reader.readAsDataURL(file);
+          // Add to stored files
+          storedFiles.items.add(file);
+
+          // Create preview
+          const previewItem = document.createElement('div');
+          previewItem.classList.add('preview-item');
+
+          previewItem.innerHTML = `
+              <div class="upload-spinner">
+                  <i class="fa fa-spinner"></i>
+              </div>
+              <button type="button" class="remove-image">×</button>
+              <img>
+          `;
+
+          imagePreview.appendChild(previewItem);
+
+          const img = previewItem.querySelector('img');
+          const spinner = previewItem.querySelector('.upload-spinner');
+
+          const reader = new FileReader();
+
+          reader.onload = () => {
+              setTimeout(() => {
+                  img.src = reader.result;
+                  spinner.style.display = 'none';
+                  img.style.display = 'block';
+              }, 400);
+          };
+
+          reader.readAsDataURL(file);
+
+          // Remove logic
+          previewItem.querySelector('.remove-image').addEventListener('click', () => {
+
+              const index = Array.from(imagePreview.children).indexOf(previewItem);
+
+              storedFiles.items.remove(index); // remove from file list
+              imageUpload.files = storedFiles.files; // reassign
+
+              previewItem.remove();
+          });
+
+      });
+
+      // Update input files with stored list
+      imageUpload.files = storedFiles.files;
+
   });
+
+
+
+
+
 </script>
 
 
@@ -764,19 +900,76 @@ body {
 
 
 
-    // Article Form
-    jQuery( document ).ready(function(){
-      jQuery(".article-submit-btn").on("click", function(e){
-        e.preventDefault();
-        
-        jQuery(".article-submit-btn").prop('disabled', true);
 
-        jQuery(".response-container").hide();
-        jQuery(".response-container").html("");
 
-        jQuery(".article-form").submit();
-      });
+
+</script>
+
+
+
+
+
+<script>
+
+
+  // Article Form
+  jQuery( document ).ready(function(){
+    jQuery(".article-submit-btn").on("click", function(e){
+      e.preventDefault();
+      
+      jQuery(".article-submit-btn").prop('disabled', true);
+
+      jQuery(".response-container").hide();
+      jQuery(".response-container").html("");
+
+      jQuery(".article-form").submit();
     });
+  });
+
+
+
+
+  jQuery( document ).ready(function(){
+
+
+
+
+    // Initialize Quill editor
+    var quill = new Quill('#editor-container', {
+      theme: 'snow',
+      modules: {
+        toolbar: [
+          [{ header: [1, 2, 3, false] }],
+          ['bold', 'italic', 'underline', 'strike'],
+          [{ list: 'ordered' }, { list: 'bullet' }],
+          ['link'],
+          ['clean']
+        ],
+        clipboard: {
+          matchVisual: false // preserves formatting when pasting
+        }
+      }
+    });
+
+
+
+    //Save this for future post editing
+    var savedContent = '';
+
+    // Set the content into Quill editor
+    quill.root.innerHTML = savedContent;
+
+    // Optional: if you also want to set the hidden input for form submission
+    $('#blogContent').val(savedContent);
+
+
+
+
+
+
+
+
+
 
 
 
@@ -815,7 +1008,7 @@ body {
 
 
 
-          /////////////////////REMOVE UPLOADED
+          /*/////////////////////REMOVE UPLOADED
           const imageUpload = document.getElementById('imageUpload');
           const imagePreview = document.getElementById('imagePreview');
           const previewImg = document.getElementById('previewImg');
@@ -836,11 +1029,24 @@ body {
           // Hide preview container
           imagePreview.style.display = 'none';
           /////////////////////
+*/
 
 
-
-          jQuery(".article-description").val("");
+          // jQuery(".article-description").val("");
+          quill.setText('');
           jQuery(".article-title").val("");
+
+
+
+          const imageUpload = document.getElementById('imageUpload');
+          const imagePreview = document.getElementById('imagePreview');
+
+          // 1️⃣ Clear preview
+          imagePreview.innerHTML = '';
+
+          // 3️⃣ Reset file input
+          imageUpload.value = '';
+          imageUpload.files = storedFiles.files;
 
 
 
@@ -863,52 +1069,18 @@ body {
     });
 
 
-</script>
-
-
-
-
-
-<script>
-
-  jQuery( document ).ready(function(){
-
-
-
-
-    // Initialize Quill editor
-    var quill = new Quill('#editor-container', {
-      theme: 'snow',
-      modules: {
-        toolbar: [
-          [{ header: [1, 2, 3, false] }],
-          ['bold', 'italic', 'underline', 'strike'],
-          [{ list: 'ordered' }, { list: 'bullet' }],
-          ['link'],
-          ['clean']
-        ],
-        clipboard: {
-          matchVisual: false // preserves formatting when pasting
-        }
-      }
-    });
-
-
-
-    //Save this for future post editing
-    var savedContent = '';
-
-    // Set the content into Quill editor
-    quill.root.innerHTML = savedContent;
-
-    // Optional: if you also want to set the hidden input for form submission
-    $('#blogContent').val(savedContent);
-
-
   });
 
-  </script>
 
+
+  
+
+
+
+
+    
+
+  </script>
 
 
 

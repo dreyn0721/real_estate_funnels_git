@@ -15,7 +15,7 @@ include("template-parts/header.php");
 			<h1 class="text-white">Residential Selling</h1>
 			<p class="text-white">Get expert guidance to price, market, and sell your residential property efficiently and stress-free.</p>
 			<div>
-				<a class="theme-btn" href="<?=$base_url;?>/contact-us.php">Contact Us</a>
+				<a class="theme-btn" href="<?=$base_url;?>/contact-us.php">Lets Start</a>
 			</div>
 		</section>
 	</div>
@@ -29,16 +29,17 @@ include("template-parts/header.php");
 	      <div class="col-md-6">
 	        <h2 class="fs-1 mb-3">Selling Your Home Made Easy</h2>
 	        <p class="fs-5 mb-4">
-	          Selling your home can be stressful, but our experienced real estate team makes it simple
-	          and profitable. We guide you through pricing, marketing, negotiations, and closing so
-	          you get the best value for your property without the hassle.
+				Selling your home doesn’t have to be overwhelming. I provide strategic, hands-on guidance to ensure your property is positioned correctly, marketed effectively, and negotiated for maximum value.<br>
+				From pricing to closing, I manage every step with precision so you can move forward confidently, without unnecessary stress.
 	        </p>
 	        <ul class="selling-benefits list-unstyled mb-4">
-	          <li><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Accurate home valuation for maximum profit</li>
-	          <li><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Professional photography & marketing exposure</li>
-	          <li><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Expert negotiation & contract support</li>
-	          <li><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Smooth closing process from start to finish</li>
+	          <li><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Accurate home valuation designed to maximize your return</li>
+	          <li><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Professional photography and targeted marketing exposure</li>
+	          <li><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Skilled negotiation and contract management</li>
+	          <li><i class="fa fa-check-circle" style="color:#7EE0B1;"></i> Seamless coordination from listing to closing</li>
 	        </ul>
+
+	        <p>My goal is simple: protect your equity, structure the deal properly, and deliver the strongest possible outcome.</p>
 	        <a href="<?php echo $base_url;?>/contact-us.php" class="theme-btn">Get Your Free Home Evaluation</a>
 	      </div>
 

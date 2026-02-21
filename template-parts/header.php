@@ -52,6 +52,19 @@
 								<li><a class="dropdown-item <?php echo ($page == "deal-announcement")? 'active':''; ?>" href="<?=$base_url;?>/deal-announcement.php">Deal Announcement</a></li>
 							</ul>
 						</li>
+
+
+						<?php if( logged_in() ): ?>
+							<li class="nav-item"><a class="nav-link" href="<?php echo $base_url; ?>/logout.php">Logout</a></li>
+						<?php else: ?>
+							<li class="nav-item">
+								<a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#authModal">
+									Login
+								</a>
+							</li>
+						<?php endif; ?>
+
+
 						<li class="nav-item dropdown mega-dropdown">
 						  	<a class="nav-link dropdown-toggle"
 							   href="#"
@@ -100,16 +113,9 @@
 							<a class="nav-link" href="<?=$base_url;?>/blog.php">Blog</a>
 						</li>
 
-
-						<?php if( logged_in() ): ?>
-							<li class="nav-item"><a class="nav-link" href="<?php echo $base_url; ?>/logout.php">Logout</a></li>
-						<?php else: ?>
-							<li class="nav-item">
-								<a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#authModal">
-									Login
-								</a>
-							</li>
-						<?php endif; ?>
+						<!-- <li class="nav-item">
+							<a class="nav-link" href="<?=$base_url;?>/meettheteam.php">Meet the Team</a>
+						</li> -->
 						
 
 						<li class="nav-item ">

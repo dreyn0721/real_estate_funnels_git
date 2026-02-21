@@ -385,11 +385,83 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "login" ){
 
 
 
+//API//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$headers = getallheaders();
+if( isset( $headers ) && isset( $headers['action'] ) && $headers['action'] ){
 
 
 
 
 
+
+
+  if( $headers['action'] == "get_cta_entries" ){
+
+    $current_time = date('m/d/Y H:i:s');
+
+
+    $response = [
+      "success" => null,
+      "errors" => [],
+      "cta_entries" => []
+    ];
+
+
+    if( isset( $headers['auth_token'] ) && $headers['auth_token'] ){
+      if( $headers['auth_token'] == "ee7f6a148ff6c66d7b07f2a8a25486878a79c93b201edec810eb40d2de91f7f54aac53ef5eeeef8a9e01796a2bc2eb97806187a371ad0de4af7028525e74789c" ){
+
+      } else {
+
+        $response['errors'][] = "Auth token is invalid or expired";
+
+      }
+    } else {
+      $response['errors'][] = "Auth token is required";
+    }
+
+
+
+
+
+    if( isset( $response['errors'] ) && is_array( $response['errors'] ) && count( $response['errors'] ) > 0 ){
+      
+      exit( json_encode( $response ) );
+
+    } else {
+      $id = 0;
+
+      $get_entries = mysqli_query($conn, "SELECT * FROM residential_real_estate_entry WHERE id >= '$id' ORDER BY id DESC LIMIT 100 ");
+      while( $the_entry = mysqli_fetch_assoc( $get_entries ) ){
+        $response['cta_entries'][] = $the_entry;
+      }
+
+
+      $response['success'] = true;
+      exit( json_encode( $response ) );
+    }
+
+
+
+
+
+
+    $response['errors'][] = "Something wen't wrong";
+    $response['success'] = false;
+
+    exit( json_encode( $response ) );
+  }
+
+
+
+
+
+
+
+
+
+
+
+}/////// API END ///////////////////////////
 
 
 
@@ -501,6 +573,46 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "entry" ){
     echo $html;
 
   } else {
+
+
+
+
+    $server_output = "n/a";
+
+
+    //Send api to FUB
+    $url = "https://api.followupboss.com/v1/events";
+    $post_data = array(
+      'person' => array(
+        'firstName' => $firstname,
+        'lastName' => $lastname,
+        'emails' => array(
+          "work" => $email
+        ),
+        'phones' => array(
+          "mobile" => $phone
+        ),
+        'customCustominquiry' => $message,
+        'customCustomservice' => $service
+      )
+    );
+
+
+    $ch = curl_init($url);
+    // return the response instead of sending it to stdout:
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // set the POST data, corresponding method and headers:
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_data));
+    // send the request and get the response
+
+    curl_setopt($ch, CURLOPT_USERPWD, "fka_16Rgc0NNIxgKvh7YK8uju7bDoD9PQi3aeJ:");  
+
+    $server_output = curl_exec($ch);
+
+
+
+
+
     //insert data and return success
 
       mysqli_query($conn, "INSERT INTO residential_real_estate_entry 
@@ -515,7 +627,8 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "entry" ){
         service,
         posted_by_id,
 
-        datetimeinserted
+        datetimeinserted,
+        fub_api_response
       ) 
       VALUES 
       (
@@ -528,7 +641,8 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "entry" ){
         '$service',
         '$user_id',
 
-        '$current_time'
+        '$current_time',
+        '$server_output'
       ) 
       ");
 
@@ -759,60 +873,130 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "article-post" ){
   } else {
 
     if(isset($_FILES['article_img'])){
-      $file_name = $_FILES['article_img']['name'];
 
-      $file_size =$_FILES['article_img']['size'];
-      $file_tmp =$_FILES['article_img']['tmp_name'];
-      $file_type=$_FILES['article_img']['type'];
-      $getting_extn = explode('.',$_FILES['article_img']['name']);
-      $file_ext=strtolower(end($getting_extn));
-      $article_pic = md5(date("YmDHis"))."x".rand(0,100).".".$file_ext;
+      $saved_imgs = [];
 
-      $extensions= array("png","jpg","jpeg");
-
-      if(in_array($file_ext,$extensions) == true){
-        if($file_size > 2097152){
-          $errors[]='Article image size must be lower than 2 MB.';
-        } else {
-          move_uploaded_file($file_tmp,"assets/article_imgs/".$article_pic);
-          $img_url = "/assets/article_imgs/".$article_pic;
+      // foreach($_FILES['article_img'] as $the_img_obj){
+      foreach($_FILES['article_img']['tmp_name'] as $key => $tmp_name){
 
 
-          $sql = "INSERT INTO articles 
-          (
-            title, 
-            description,
-            img_url,
-            posted_by_id,
-            datetimeinserted
-          ) 
-          VALUES 
-          (
-            '$article_title', 
-            '$article_description', 
-            '$img_url', 
-            '$user_id', 
-            '$current_time'
-          ) 
-          ";
+          $file_name =  $_FILES['article_img']['name'][$key];
 
 
-        
-          if ($conn->query($sql) === TRUE) {
-            echo "success";
-            exit();
+          if( isset( $file_name ) && $file_name ){
           } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            continue;
           }
 
-        }
+          
+
+          $file_size = $_FILES['article_img']['size'][$key];
+          $file_tmp =$_FILES['article_img']['tmp_name'][$key];
+          $file_type=$_FILES['article_img']['type'][$key];
+          $getting_extn = explode('.',$_FILES['article_img']['name'][$key]);
+
+
+
+          $file_ext=strtolower(end($getting_extn));
+          $article_pic = md5(date("YmDHis"))."x".rand(0,100).".".$file_ext;
+          $saved_imgs[] = $article_pic;
+
+          $extensions= array("png","jpg","jpeg");
+
+          if(in_array($file_ext,$extensions) == true){
+            if($file_size > 2097152){
+              $errors[]= '"'.$file_name.'" Article image size must be lower than 2 MB.';
+            } else {
+              move_uploaded_file($file_tmp,"assets/article_imgs/".$article_pic);
+              // $img_url = "/assets/article_imgs/".$article_pic;
+
+
+              
+
+            }
+
+          } else {
+            $errors[] = '"'.$file_name.'" is invalid, We only allow Png, Jpeg, Jpg file types to be uploaded.';
+          }
+      }
+
+      if( isset( $saved_imgs ) && is_array( $saved_imgs ) && count( $saved_imgs ) > 0 ){
 
       } else {
-        $errors[] = "We only allow Png, Jpeg, Jpg file types to be uploaded in profile picture";
+        $errors[] = "Please upload at least 1 article image.";
       }
+
+
     }
 
+
+    if( isset( $errors ) && is_array( $errors ) && count( $errors ) > 0 ){
+      //make html error for return
+      $html = "<ul>";
+
+      foreach( $errors as $error ){
+        $html .= "<li>".$error."</li>";
+      }
+
+      $html .= "</ul>";
+
+      echo $html;
+      exit();
+    } else {
+
+      $json_imgs = json_encode( $saved_imgs );
+
+      $sql = "INSERT INTO articles 
+      (
+        title, 
+        description,
+        img_url,
+        posted_by_id,
+        datetimeinserted
+      ) 
+      VALUES 
+      (
+        '$article_title', 
+        '$article_description', 
+        '$json_imgs', 
+        '$user_id', 
+        '$current_time'
+      ) 
+      ";
+
+
+    
+      if ($conn->query($sql) === TRUE) {
+        echo "success";
+        exit();
+      } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+      }
+
+
+    }
+
+
+
+
+
+
+
+      exit();
+
+
+
   }
+
+
+
+
+
+
+
+
+
+
 
 
   if( isset( $errors ) && is_array( $errors ) && count( $errors ) > 0 ){

@@ -583,7 +583,7 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "entry" ){
       <h2>Your Competitive Advantage in Commercial Real Estate</h2>
       <p>
         Whether you are expanding your business or deploying capital, you need
-        more than listings — you need strategy, market intelligence, and a
+        more than listings, you need strategy, market intelligence, and a
         trusted advisor who thinks like an investor.
       </p>
       <a href="#form" class="btn btn-scroll">Start With the Free Guide</a>

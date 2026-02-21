@@ -26,7 +26,7 @@ if( isset( $article_data ) && is_array( $article_data ) && count( $article_data 
 $author_data = get_userdata_by_id( $article_data['posted_by_id'] );
 ?>
 
-<div class="container">
+<div class="container pt-5 pb-5">
 
   <nav class="breadcrumbs" aria-label="Breadcrumb">
     <a href="<?=$base_url;?>"><i class="fa fa-house"></i> Home</a>
@@ -42,7 +42,48 @@ $author_data = get_userdata_by_id( $article_data['posted_by_id'] );
     <div class="loader" id="heroLoader">
       <i class="fa fa-spinner"></i>
     </div>
-    <img id="heroImage" src="<?=$base_url.$article_data['img_url'];?>" alt="Blog Image">
+
+
+
+
+    <?php if( isset( $article_data['img_url'] ) && $article_data['img_url'] ): 
+      $the_article_images = json_decode( $article_data['img_url'], true );
+
+
+      if( isset( $the_article_images ) && is_array($the_article_images) && count($the_article_images) > 0 ):
+    ?>
+    <div id="articleImageCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <?php $x = 1; foreach( $the_article_images as $the_article_image ): ?>
+
+        <div class="carousel-item <?php if( $x == 1 ): ?>active<?php endif; ?>">
+          <img <?php if( $x == 1 ): ?> id="heroImage"<?php endif; ?> class="d-block w-100" src="<?=$base_url;?>/assets/article_imgs/<?=$the_article_image;?>" alt="<?$the_article_image;?>">
+        </div>
+
+        <?php $x++; endforeach; ?>
+
+
+      </div>
+      <a class="carousel-control-prev" href="#articleImageCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#articleImageCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <?php 
+      endif; //end if has multiple images
+
+    endif; //end if have image value
+    ?>
+
+
+
+
+    <!-- <img id="heroImage" src="<?=$base_url.$article_data['img_url'];?>" alt="Blog Image"> -->
   </div>
 
   <!-- Meta -->
@@ -64,7 +105,7 @@ $author_data = get_userdata_by_id( $article_data['posted_by_id'] );
     <p>
       By combining glassmorphism, subtle animations, and responsive layouts,
       you can create an experience that feels similar to Medium, Webflow, or
-      Notion — but fully customized to your brand.
+      Notion, but fully customized to your brand.
     </p>
 
     <p>
@@ -187,7 +228,7 @@ body {
 /* ===== Hero Image ===== */
 .hero-single {
   position: relative;
-  height: 420px;
+  height: 520px;
   border-radius: 24px;
   overflow: hidden;
   margin-bottom: 40px;
@@ -480,6 +521,29 @@ h1 {
   color: rgba(255,255,255,0.4);
 }
 
+
+
+
+
+
+#articleImageCarousel{
+  max-height: 520px;
+}
+.carousel-control-prev span,
+.carousel-control-next span{
+  background-color: #0F1E2D;
+  border-radius: 25px;
+}
+
+.hero-single img{
+  max-height: 520px;
+}
+
+
+
+
+
+
 /* Mobile */
 @media (max-width: 640px) {
   .breadcrumbs {
@@ -559,6 +623,7 @@ jQuery( document ).ready( function(){
 
 
           jQuery(".comment-msg").val("");
+          location.reload();
 
 
 
