@@ -51,29 +51,43 @@ $author_data = get_userdata_by_id( $article_data['posted_by_id'] );
 
 
       if( isset( $the_article_images ) && is_array($the_article_images) && count($the_article_images) > 0 ):
-    ?>
-    <div id="articleImageCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
 
-        <?php $x = 1; foreach( $the_article_images as $the_article_image ): ?>
-
-        <div class="carousel-item <?php if( $x == 1 ): ?>active<?php endif; ?>">
-          <img <?php if( $x == 1 ): ?> id="heroImage"<?php endif; ?> class="d-block w-100" src="<?=$base_url;?>/assets/article_imgs/<?=$the_article_image;?>" alt="<?$the_article_image;?>">
-        </div>
-
-        <?php $x++; endforeach; ?>
+        if( count( $the_article_images ) == 1 ): ?>
 
 
-      </div>
-      <a class="carousel-control-prev" href="#articleImageCarousel" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#articleImageCarousel" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
+          <div class="single-image-container">
+            <img id="heroImage" src="<?php echo $base_assets.'/article_imgs/'.$the_article_images[0];?>" alt="Blog Image">
+          </div>
+
+
+        <?php else: ?>
+
+
+          <div id="articleImageCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+              <?php $x = 1; foreach( $the_article_images as $the_article_image ): ?>
+
+              <div class="carousel-item <?php if( $x == 1 ): ?>active<?php endif; ?>">
+                <img <?php if( $x == 1 ): ?> id="heroImage"<?php endif; ?> class="d-block w-100" src="<?=$base_url;?>/assets/article_imgs/<?=$the_article_image;?>" alt="<?$the_article_image;?>">
+              </div>
+
+              <?php $x++; endforeach; ?>
+
+
+            </div>
+            <a class="carousel-control-prev" href="#articleImageCarousel" role="button" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#articleImageCarousel" role="button" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+        <?php endif; ?>
+        
     <?php 
       endif; //end if has multiple images
 
@@ -216,10 +230,14 @@ body {
 /* ===== Hero Image ===== */
 .hero-single {
   position: relative;
-  height: 520px;
+/*  height: 520px;*/
   border-radius: 24px;
   overflow: hidden;
   margin-bottom: 40px;
+}
+
+.hero-single #articleImageCarousel{
+  max-height: 520px;
 }
 
 .hero-single img {
@@ -228,6 +246,10 @@ body {
   object-fit: cover;
   display: none;
   max-height: 520px;
+}
+.hero-single .single-image-container img{
+  max-height: unset;
+
 }
 
 .hero-single .loader {
@@ -280,11 +302,23 @@ h1 {
   box-shadow: 0 30px 60px rgba(0,0,0,0.45);
 }
 
+.article h2 {
+  font-size: 42px;
+  line-height: 42px;
+  margin-bottom: 10px;
+  margin-top: 25px;
+}
+
 .article p {
-  font-size: 1rem;
-  line-height: 1.9;
+  font-size: 26px;
+  line-height: 32px;
   color: #dce1f3;
-  margin-bottom: 24px;
+  margin-bottom: 6px;
+}
+.article ul{
+  font-size: 26px;
+  margin-bottom: 40px;
+
 }
 
 /* ===== Footer Actions ===== */
@@ -550,18 +584,22 @@ h1 {
 
 
 <script>
+
+
 const heroImg = document.getElementById('heroImage');
 const heroLoader = document.getElementById('heroLoader');
 
-heroImg.addEventListener('load', () => {
+function handleLoad() {
   heroLoader.style.display = 'none';
   heroImg.style.display = 'block';
-});
+  console.log('Image loaded');
+}
 
-heroImg.addEventListener('error', () => {
-  heroLoader.innerHTML = '<i class="fa fa-image"></i>';
-});
-
+if (heroImg.complete) {
+  handleLoad();
+} else {
+  heroImg.addEventListener('load', handleLoad);
+}
 
 
 

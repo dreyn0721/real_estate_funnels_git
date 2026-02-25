@@ -914,7 +914,7 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "article-post" ){
 
 
           $file_ext=strtolower(end($getting_extn));
-          $article_pic = md5(date("YmDHis"))."x".rand(0,100).".".$file_ext;
+          $article_pic = md5(date("YmDHis") ."x".rand(0,100) ).".".$file_ext;
           $saved_imgs[] = $article_pic;
 
           $extensions= array("png","jpg","jpeg");
