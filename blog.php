@@ -629,7 +629,8 @@ body {
 
           <input type="text" class="article-title" name="article_title" placeholder="Blog Title">
 
-
+          <textarea rows="2" class="form-control meta-description" name="meta_description" placeholder="Meta Description"></textarea>
+          
           <div class="upload-wrapper">
 
             <input type="file" id="imageUpload" name="article_img[]" accept="image/*" multiple hidden >
@@ -713,7 +714,7 @@ body {
               if( strlen( $the_article['description'] ) > 150 ){
                 echo substr($the_article['description'], 0, 150)."...";
               } else {
-                $the_article['description'];
+                echo $the_article['description'];
               }
                 
 
@@ -1005,7 +1006,9 @@ body {
           jQuery(".response-container").show();
           jQuery(".response-container").html("<p>Article has been created successfully</p>");
 
-
+          setTimeout(function() {
+            window.location.href = "";
+          }, 2000);
 
 
           /*/////////////////////REMOVE UPLOADED
@@ -1035,7 +1038,7 @@ body {
           // jQuery(".article-description").val("");
           quill.setText('');
           jQuery(".article-title").val("");
-
+          jQuery(".meta-description").val("");
 
 
           const imageUpload = document.getElementById('imageUpload');

@@ -1,8 +1,16 @@
 <?php
 $author = "Anthony Rivas";
-$base_url = "http://127.0.0.1/real_estate_funnels_git";
 
 
+$host = $_SERVER['HTTP_HOST'];
+$localhost_names = ['localhost', '127.0.0.1', '::1', 'virtualdominance2'];
+if (in_array($host, $localhost_names) || strpos($host, '.local') !== false) {
+  $base_url = "http://127.0.0.1/real_estate_funnels_git";
+  $base_assets = "http://127.0.0.1/real_estate_funnels_git/assets";
+} else {
+  $base_url = "https://professionaladvisor.com";
+  $base_assets = "https://professionaladvisor.com/assets";
+}
 
 
 
@@ -842,6 +850,7 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "article-post" ){
   global $user_id;
 
   $errors = [];
+  $saved_imgs = [];
 
 
   
@@ -851,6 +860,14 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "article-post" ){
   } else {
     $errors[] = "Article title cannot be empty.";
   }
+
+  if( isset($_POST['meta_description']) && $_POST['meta_description'] ){
+    $meta_description = ucwords( $_POST['meta_description'] );
+  } else {
+    $meta_description = "";
+  }
+
+
 
   if( isset($_POST['article_description']) && $_POST['article_description'] ){
     $article_description = $_POST['article_description'];
@@ -874,7 +891,6 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "article-post" ){
 
     if(isset($_FILES['article_img'])){
 
-      $saved_imgs = [];
 
       // foreach($_FILES['article_img'] as $the_img_obj){
       foreach($_FILES['article_img']['tmp_name'] as $key => $tmp_name){
@@ -951,6 +967,7 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "article-post" ){
         title, 
         description,
         img_url,
+        meta_description,
         posted_by_id,
         datetimeinserted
       ) 
@@ -959,6 +976,7 @@ if( isset( $_POST['action'] ) && $_POST['action'] == "article-post" ){
         '$article_title', 
         '$article_description', 
         '$json_imgs', 
+        '$meta_description',
         '$user_id', 
         '$current_time'
       ) 

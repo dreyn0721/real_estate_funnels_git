@@ -1,5 +1,29 @@
 <?php include("init/database.php"); ?>
-<?php include("init/main-functions.php"); ?>
+<?php include("init/main-functions.php"); 
+
+
+// Override meta description if has value
+if( isset( $_GET['id'] ) && $_GET['id'] ){
+  $article_data = get_article_single( $_GET['id'] );
+
+  if( isset( $article_data['meta_description'] ) && $article_data['meta_description'] ){
+    $description = $article_data['meta_description'];
+  }
+
+  if( isset( $article_data['img_url'] ) && $article_data['img_url'] ){
+    $get_meta_img = json_decode( $article_data['img_url'], true );
+    if( isset( $get_meta_img[0] ) && $get_meta_img[0] ){
+      $meta_img = $base_assets."/article_imgs/".$get_meta_img[0];
+    }
+  }
+  
+
+
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +49,14 @@
 
 
 	<meta name="description" content="<?=$description;?>">
+  
+	  <?php if( isset( $meta_img ) && $meta_img ): ?>
+
+	  <meta property="og:image" content="<?=$meta_img;?>">
+	  <meta property="og:image:width" content="1200">
+	  <meta property="og:image:height" content="630">
+	  <?php endif; ?>
+
 	<meta name="author" content="<?=$author;?>" />
 	<title><?=$pagetitle;?></title>
 </head>

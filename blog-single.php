@@ -98,21 +98,9 @@ $author_data = get_userdata_by_id( $article_data['posted_by_id'] );
 
   <!-- Article -->
   <div class="article">
-    <p>
+   
       <?=$article_data['description'];?>
-    </p>
-
-    <p>
-      By combining glassmorphism, subtle animations, and responsive layouts,
-      you can create an experience that feels similar to Medium, Webflow, or
-      Notion, but fully customized to your brand.
-    </p>
-
-    <p>
-      Loading spinners, image previews, and real-time feedback all play a huge
-      role in perceived performance. Even small details dramatically improve
-      trust and engagement.
-    </p>
+    
 
     <!-- Actions -->
     <!-- <div class="actions">
@@ -239,6 +227,7 @@ body {
   height: 100%;
   object-fit: cover;
   display: none;
+  max-height: 520px;
 }
 
 .hero-single .loader {
@@ -535,9 +524,6 @@ h1 {
   border-radius: 25px;
 }
 
-.hero-single img{
-  max-height: 520px;
-}
 
 
 
